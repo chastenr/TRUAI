@@ -1,0 +1,48 @@
+import type { Listing } from "@/types";
+
+export const listings: Listing[] = [
+  {
+    id: "bel-air-reserve",
+    price: "$8,950,000",
+    address: "1248 Bel Air Reserve Drive",
+    neighborhood: "Bel Air",
+    beds: 6,
+    baths: 7,
+    squareFeet: "8,420",
+    imageClass: "property-gradient-1",
+    summary: "Gated contemporary estate with canyon views, resort pool, theater, and detached guest suite.",
+  },
+  {
+    id: "malibu-cove",
+    price: "$12,400,000",
+    address: "31802 Pacific Cove Lane",
+    neighborhood: "Malibu",
+    beds: 5,
+    baths: 6,
+    squareFeet: "6,780",
+    imageClass: "property-gradient-2",
+    summary: "Coastal retreat with floor-to-ceiling glass, private beach access, and sunset entertaining terraces.",
+  },
+  {
+    id: "west-hollywood-penthouse",
+    price: "$4,875,000",
+    address: "9000 Sunset Terrace PH2",
+    neighborhood: "West Hollywood",
+    beds: 3,
+    baths: 4,
+    squareFeet: "3,940",
+    imageClass: "property-gradient-3",
+    summary: "Full-service penthouse with skyline views, private elevator entry, and designer finishes throughout.",
+  },
+  {
+    id: "pacific-palisades-villa",
+    price: "$7,250,000",
+    address: "711 Amalfi Ridge Road",
+    neighborhood: "Pacific Palisades",
+    beds: 5,
+    baths: 6,
+    squareFeet: "6,120",
+    imageClass: "property-gradient-4",
+    summary: "Warm modern villa near village shops with a chef's kitchen, wine room, and landscaped courtyard.",
+  },
+];

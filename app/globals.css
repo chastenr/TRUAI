@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f5f0;
+  --foreground: #171717;
+  --charcoal: #202020;
+  --muted: #6f6a63;
+  --champagne: #b9985a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--champagne);
+}
+
+.premium-shadow {
+  box-shadow: 0 18px 48px rgba(19, 18, 16, 0.08);
+}
+
+.reveal-down {
+  animation: reveal-down 0.8s ease-out both;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(-28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.reveal-delay-4 {
+  animation-delay: 0.48s;
+}
+
+.soft-lift {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.soft-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(19, 18, 16, 0.08);
+}
+
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(-26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.property-gradient-1 {
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 0.08), rgba(10, 10, 10, 0.54)),
+    linear-gradient(120deg, #d8d0c1, #7f837c 42%, #242424);
+}
+
+.property-gradient-2 {
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 0.04), rgba(10, 10, 10, 0.48)),
+    linear-gradient(120deg, #c9d4d2, #777b73 48%, #1e1d1c);
+}
+
+.property-gradient-3 {
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 0.06), rgba(10, 10, 10, 0.5)),
+    linear-gradient(120deg, #ddd4c2, #9d8f76 46%, #2a2928);
+}
+
+.property-gradient-4 {
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 0.06), rgba(10, 10, 10, 0.5)),
+    linear-gradient(120deg, #c8c4bd, #7d817b 48%, #202124);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-down {
+    animation: none;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .soft-lift,
+  .soft-lift:hover {
+    transform: none;
+    transition: none;
+  }
+}
