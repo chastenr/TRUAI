@@ -31,19 +31,26 @@ export default function Footer() {
           {/* Brand column */}
           <div>
             <div>
-              <p className="text-base font-semibold tracking-wide text-white">Apex Luxe</p>
-              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-white/40">
-                Realty Group
+              <p className="text-base font-semibold tracking-wide text-white">Luminary Realty</p>
+              <p className="text-[0.56rem] font-semibold uppercase tracking-[0.28em] text-white/40">
+                Luxury Real Estate Group
               </p>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/52">
               Premier luxury real estate advisory serving Bel Air, Malibu, Beverly Hills,
-              Pacific Palisades, and greater Los Angeles.
+              Pacific Palisades, Buckhead Atlanta, and greater Los Angeles.
             </p>
+            {/* NALA powered-by attribution */}
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#c49a3c]/25 bg-[#c49a3c]/10 px-3 py-1.5">
+              <span className="flex size-4 items-center justify-center rounded-full bg-[#c49a3c] text-[0.5rem] font-bold text-neutral-950">N</span>
+              <span className="text-[0.62rem] font-semibold text-[#e0be6e]/80">
+                Powered by NALA — Northside Advanced Learning Applications, Inc.
+              </span>
+            </div>
             <div className="mt-6 space-y-1 text-sm text-white/50">
               <p>Los Angeles, CA 90024</p>
               <p>(310) 000 – 0000</p>
-              <p>info@apexluxerealty.com</p>
+              <p>info@luminaryrealty.com</p>
             </div>
             <div className="mt-6 flex gap-3">
               {/* Social icon placeholders */}
@@ -114,8 +121,8 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 rounded-lg border border-[#b9985a]/25 bg-[#b9985a]/8 p-4">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#d4b87a]">
+            <div className="mt-6 rounded-lg border border-[#c49a3c]/25 bg-[#c49a3c]/10 p-4">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#e0be6e]">
                 Powered by Trulience
               </p>
               <p className="mt-2 text-xs leading-5 text-white/45">
@@ -133,11 +140,11 @@ export default function Footer() {
       <div className="section-shell py-6">
         <div className="flex flex-col gap-3 text-xs leading-6 text-white/32 sm:flex-row sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Apex Luxe Realty Group. All rights reserved.
+            &copy; {new Date().getFullYear()} Luminary Realty Group. All rights reserved.
           </p>
           <p className="max-w-2xl sm:text-right">
             <strong className="font-semibold text-white/42">Proof-of-concept demo only.</strong>{" "}
-            Apex Luxe Realty Group is a fictional brokerage created solely to demonstrate
+            Luminary Realty Group is a fictional brokerage created solely to demonstrate
             Trulience avatar technology and AI-powered CRM lead routing for real estate.
             No real transactions, listings, agents, or services are offered. Trulience
             integrations require a valid account, approved API credentials, and production

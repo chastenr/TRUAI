@@ -3,12 +3,18 @@ export type Listing = {
   price: string;
   address: string;
   neighborhood: string;
+  city?: string;
+  state?: string;
   beds: number;
   baths: number;
+  halfBaths?: number;
   squareFeet: string;
+  lotSize?: string;
+  yearBuilt?: number;
   imageClass: string;
   summary: string;
   status?: string;
+  detailSlug?: string;
 };
 
 export type FAQ = {

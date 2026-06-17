@@ -25,7 +25,7 @@ export default function FAQ() {
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-sm font-semibold text-neutral-950 marker:content-none">
                 {faq.question}
                 <span
-                  className="flex size-6 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-base font-light text-[#8c743f] transition-transform duration-200 group-open:rotate-45"
+                  className="flex size-6 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-base font-light text-[#9a7620] transition-transform duration-200 group-open:rotate-45"
                   aria-hidden="true"
                 >
                   +
@@ -44,14 +44,14 @@ export default function FAQ() {
             Have a question not listed here?{" "}
             <a
               href="#concierge"
-              className="font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#8c743f]"
+              className="font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#9a7620]"
             >
               Ask the AI Concierge
             </a>{" "}
             or{" "}
             <a
               href="#crm"
-              className="font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#8c743f]"
+              className="font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#9a7620]"
             >
               reach out directly
             </a>

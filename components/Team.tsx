@@ -70,7 +70,7 @@ export default function Team() {
               {/* Name + role */}
               <div className="mt-5">
                 <h3 className="text-base font-semibold text-neutral-950">{member.name}</h3>
-                <p className="mt-0.5 text-[0.75rem] font-semibold text-[#8c743f]">{member.role}</p>
+                <p className="mt-0.5 text-[0.75rem] font-semibold text-[#9a7620]">{member.role}</p>
               </div>
 
               {/* Bio */}

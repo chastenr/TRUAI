@@ -56,7 +56,7 @@ export default function UseCases() {
               key={u.title}
               className="soft-lift rounded-lg border border-white/10 bg-white/[0.04] p-6 transition hover:border-white/20 hover:bg-white/[0.07]"
             >
-              <span className="text-lg text-[#d4b87a]" aria-hidden="true">
+              <span className="text-lg text-[#e0be6e]" aria-hidden="true">
                 {u.icon}
               </span>
               <h3 className="mt-3 text-base font-semibold text-white">{u.title}</h3>
@@ -73,7 +73,7 @@ export default function UseCases() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href="#crm"
-              className="rounded-full bg-[#b9985a] px-6 py-3 text-center text-sm font-semibold text-neutral-950 transition hover:bg-white"
+              className="rounded-full bg-[#c49a3c] px-6 py-3 text-center text-sm font-semibold text-neutral-950 transition hover:bg-white"
             >
               Request a Demo
             </a>

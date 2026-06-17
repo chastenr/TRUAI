@@ -103,7 +103,7 @@ export default function LeadCaptureCRM() {
             noValidate
           >
             {submittedLead && (
-              <div className="mb-6 rounded-lg border border-[#b9985a]/30 bg-[#f5efe1] px-4 py-3 text-sm font-medium text-neutral-800">
+              <div className="mb-6 rounded-lg border border-[#c49a3c]/30 bg-[#f5efe1] px-4 py-3 text-sm font-medium text-neutral-800">
                 Lead captured for demo preview. A production integration would route this
                 securely to your connected CRM.
               </div>
@@ -121,7 +121,7 @@ export default function LeadCaptureCRM() {
                     required
                     value={lead.fullName}
                     onChange={(e) => update("fullName", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="Jordan Ellis"
                   />
                 </label>
@@ -132,7 +132,7 @@ export default function LeadCaptureCRM() {
                     type="email"
                     value={lead.email}
                     onChange={(e) => update("email", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="jordan@example.com"
                   />
                 </label>
@@ -142,7 +142,7 @@ export default function LeadCaptureCRM() {
                     type="tel"
                     value={lead.phone}
                     onChange={(e) => update("phone", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="(310) 555-0110"
                   />
                 </label>
@@ -151,7 +151,7 @@ export default function LeadCaptureCRM() {
                   <select
                     value={lead.persona}
                     onChange={(e) => update("persona", e.target.value)}
-                    className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                   >
                     <option>Buyer</option>
                     <option>Seller</option>
@@ -174,7 +174,7 @@ export default function LeadCaptureCRM() {
                   <input
                     value={lead.budget}
                     onChange={(e) => update("budget", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="$3M – $7M"
                   />
                 </label>
@@ -183,7 +183,7 @@ export default function LeadCaptureCRM() {
                   <input
                     value={lead.neighborhood}
                     onChange={(e) => update("neighborhood", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="Malibu, Bel Air, Palisades"
                   />
                 </label>
@@ -192,7 +192,7 @@ export default function LeadCaptureCRM() {
                   <input
                     value={lead.timeline}
                     onChange={(e) => update("timeline", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="Touring this month, ready to offer within 90 days"
                   />
                 </label>
@@ -202,7 +202,7 @@ export default function LeadCaptureCRM() {
                     rows={4}
                     value={lead.message}
                     onChange={(e) => update("message", e.target.value)}
-                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#8c743f] focus:ring-1 focus:ring-[#8c743f]/20"
+                    className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
                     placeholder="I'm looking for an ocean-view property with privacy and guest accommodations."
                   />
                 </label>
@@ -212,7 +212,7 @@ export default function LeadCaptureCRM() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
-                className="rounded-full bg-neutral-950 px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#8c743f] sm:w-auto"
+                className="rounded-full bg-neutral-950 px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#9a7620] sm:w-auto"
               >
                 {submittedLead ? "Resubmit Lead Preview" : "Preview CRM Lead"}
               </button>
@@ -235,7 +235,7 @@ export default function LeadCaptureCRM() {
               <dl className="mt-5 divide-y divide-white/8">
                 {(Object.keys(fieldLabel) as Array<keyof LeadFormData>).map((key) => (
                   <div key={key} className="py-3">
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#d4b87a]">
+                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#e0be6e]">
                       {fieldLabel[key]}
                     </dt>
                     <dd className="mt-1 text-sm leading-6 text-white/70">

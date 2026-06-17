@@ -19,7 +19,7 @@ export default function FeaturedListings() {
             </p>
             <a
               href="#listings"
-              className="mt-4 inline-block text-sm font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#8c743f]"
+              className="mt-4 inline-block text-sm font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#9a7620]"
             >
               View all listings &rarr;
             </a>
@@ -87,13 +87,13 @@ export default function FeaturedListings() {
                   <a
                     href="#concierge"
                     data-listing-id={listing.id}
-                    className="rounded-full bg-neutral-950 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-white transition hover:bg-[#8c743f]"
+                    className="rounded-full bg-neutral-950 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-white transition hover:bg-[#9a7620]"
                   >
                     Ask AI About This Home
                   </a>
                   <a
                     href="#crm"
-                    className="rounded-full border border-neutral-300 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-neutral-900 transition hover:border-[#8c743f] hover:text-[#8c743f]"
+                    className="rounded-full border border-neutral-300 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-neutral-900 transition hover:border-[#9a7620] hover:text-[#9a7620]"
                   >
                     Private Showing
                   </a>

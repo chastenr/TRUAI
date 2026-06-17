@@ -1,4 +1,6 @@
 import AIConcierge from "@/components/AIConcierge";
+import AvatarInstructions from "@/components/AvatarInstructions";
+import BuckheadFeature from "@/components/BuckheadFeature";
 import FAQ from "@/components/FAQ";
 import FeaturedListings from "@/components/FeaturedListings";
 import Footer from "@/components/Footer";
@@ -16,7 +18,7 @@ import { listings } from "@/data/listings";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Apex Luxe Realty Group",
+  name: "Luminary Realty Group",
   description:
     "Premium luxury real estate brokerage serving Bel Air, Malibu, Beverly Hills, Pacific Palisades, and greater Los Angeles, with AI concierge support for buyer questions, lead qualification, and CRM-ready routing.",
   areaServed: [
@@ -48,7 +50,7 @@ const faqSchema = {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Featured Luxury Listings — Apex Luxe Realty Group",
+  name: "Featured Luxury Listings — Luminary Realty Group",
   itemListElement: listings.map((l, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -106,6 +108,9 @@ export default function Home() {
         {/* 3 · Neighborhoods — 6 LA luxury market cards */}
         <Neighborhoods />
 
+        {/* 3b · Featured Demo Listing — The Buckhead Ridge Estate, Atlanta */}
+        <BuckheadFeature />
+
         {/* 4 · AI Concierge — Trulience avatar embed + conversation starters */}
         <AIConcierge />
 
@@ -120,6 +125,9 @@ export default function Home() {
 
         {/* 8 · Use Cases — 6 workflow cards with descriptions */}
         <UseCases />
+
+        {/* 8b · Avatar Instructions — NALA system prompt + capability tiles */}
+        <AvatarInstructions />
 
         {/* 9 · FAQ — SEO-friendly accordion */}
         <FAQ />

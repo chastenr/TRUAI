@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Luxury Real Estate Los Angeles | Apex Luxe Realty Group",
+  title: "Luxury Real Estate Los Angeles | Luminary Realty Group",
   description:
     "Premier luxury real estate brokerage serving Bel Air, Malibu, Beverly Hills, Pacific Palisades, and greater Los Angeles. Browse exclusive estates, connect with top advisors, and get instant answers through our AI concierge.",
   keywords: [
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     "Trulience avatar real estate",
   ],
   openGraph: {
-    title: "Luxury Real Estate Los Angeles | Apex Luxe Realty Group",
+    title: "Luxury Real Estate Los Angeles | Luminary Realty Group",
     description:
       "Browse curated estate listings, ask questions through our AI concierge, and connect with a luxury advisor — all on one premium brokerage platform.",
     type: "website",
-    siteName: "Apex Luxe Realty Group",
+    siteName: "Luminary Realty Group",
   },
   robots: {
     index: true,

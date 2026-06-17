@@ -53,7 +53,7 @@ export default function HowItWorks() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#listings"
-                  className="rounded-full bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#8c743f]"
+                  className="rounded-full bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#9a7620]"
                 >
                   Browse Listings
                 </a>
@@ -73,7 +73,7 @@ export default function HowItWorks() {
                   key={s.step}
                   className="flex gap-5 rounded-lg border border-neutral-100 bg-neutral-50 px-5 py-4 transition hover:border-neutral-200"
                 >
-                  <span className="mt-0.5 shrink-0 text-sm font-semibold text-[#b9985a]">
+                  <span className="mt-0.5 shrink-0 text-sm font-semibold text-[#c49a3c]">
                     {s.step}
                   </span>
                   <div>
@@ -107,7 +107,7 @@ export default function HowItWorks() {
               <a
                 key={q}
                 href="#concierge"
-                className="soft-lift rounded-lg border border-neutral-200 bg-white px-5 py-4 text-sm font-medium leading-6 text-neutral-800 transition hover:border-[#b9985a]/40 hover:text-[#8c743f]"
+                className="soft-lift rounded-lg border border-neutral-200 bg-white px-5 py-4 text-sm font-medium leading-6 text-neutral-800 transition hover:border-[#c49a3c]/40 hover:text-[#9a7620]"
               >
                 {q}
               </a>

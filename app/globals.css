@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f2;
-  --foreground: #1a1918;
-  --charcoal: #1a1918;
-  --muted: #6b6560;
-  --champagne: #b9985a;
-  --champagne-light: #d4b87a;
-  --stone: #e8e2d8;
+  --background: #f7f5f0;
+  --foreground: #16140f;
+  --charcoal: #16140f;
+  --muted: #635e58;
+  --champagne: #c49a3c;
+  --champagne-light: #e0be6e;
+  --champagne-dark: #9a7620;
+  --stone: #e4ddd0;
+  --nala-blue: #1e3a8a;
+  --nala-teal: #0f766e;
 }
 
 * {
@@ -47,7 +50,6 @@ textarea {
   color: var(--champagne);
 }
 
-/* Serif display font for headlines */
 .display-serif {
   font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
   font-weight: 400;
@@ -57,14 +59,14 @@ textarea {
 /* ─── Elevation ──────────────────────────────────────────── */
 .premium-shadow {
   box-shadow:
-    0 20px 60px rgba(19, 18, 16, 0.08),
-    0 4px 12px rgba(19, 18, 16, 0.04);
+    0 24px 64px rgba(14, 12, 8, 0.12),
+    0 4px 16px rgba(14, 12, 8, 0.06);
 }
 
 .card-shadow {
   box-shadow:
-    0 2px 8px rgba(19, 18, 16, 0.06),
-    0 1px 2px rgba(19, 18, 16, 0.03);
+    0 4px 16px rgba(14, 12, 8, 0.08),
+    0 1px 4px rgba(14, 12, 8, 0.04);
 }
 
 /* ─── Scroll reveal ──────────────────────────────────────── */
@@ -103,53 +105,51 @@ textarea {
 }
 
 .soft-lift:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow:
-    0 18px 48px rgba(19, 18, 16, 0.1),
-    0 4px 12px rgba(19, 18, 16, 0.05);
+    0 24px 56px rgba(14, 12, 8, 0.13),
+    0 6px 16px rgba(14, 12, 8, 0.07);
 }
 
 /* ─── Property image placeholders ───────────────────────── */
-/* Simulate luxury property photography with layered gradients */
+/* Vibrant luxury property gradient cards */
 .property-gradient-1 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #d8cfc0 0%, #b0a898 28%, #6a635a 52%, #2e2b27 76%, #151310 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #f5e6c0 0%, #d4a940 22%, #9c6d0a 50%, #4a3005 74%, #1e1200 100%);
 }
 
 .property-gradient-2 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #c2cecc 0%, #7f9694 28%, #3d5856 52%, #1c2e2d 76%, #0d1817 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #a8d8e8 0%, #3a9ab8 22%, #0d6480 50%, #053248 74%, #021828 100%);
 }
 
 .property-gradient-3 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #ddd5c4 0%, #b0a48e 28%, #6c5e48 52%, #312a1e 76%, #181410 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #f0d4b0 0%, #c8843a 22%, #8c4a10 50%, #3e2008 74%, #1a0c02 100%);
 }
 
 .property-gradient-4 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #c4c8c6 0%, #848e8a 28%, #404845 52%, #1e2624 76%, #0f1513 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #a8d4b0 0%, #2e9456 22%, #0c5e30 50%, #062c18 74%, #021408 100%);
 }
 
 .property-gradient-5 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #e2d8c2 0%, #baa882 28%, #7a6040 52%, #38281a 76%, #1c130b 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #f4c0b4 0%, #e0623a 22%, #a02818 50%, #4e0e08 74%, #240402 100%);
 }
 
 .property-gradient-6 {
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
-    linear-gradient(135deg, #cfc4c2 0%, #a08880 28%, #5e3e38 52%, #2c1c18 76%, #160e0c 100%);
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.62)),
+    linear-gradient(145deg, #c4b4e8 0%, #7848cc 22%, #3e1a90 50%, #1c0a50 74%, #0a0428 100%);
 }
 
 /* ─── Hero background layers ────────────────────────────── */
-/* All CSS art classes for the blue-hour estate scene        */
-
 .hero-horizon-glow {
   background: radial-gradient(ellipse 180% 70% at 62% 100%, rgba(140,72,20,0.55) 0%, rgba(80,36,8,0.3) 36%, transparent 68%);
 }
@@ -158,19 +158,16 @@ textarea {
   background: radial-gradient(ellipse 40% 50% at 70% 15%, rgba(160,170,220,0.3) 0%, transparent 100%);
 }
 
-/* Roof / soffit positioning */
 .hero-roof-main   { bottom: 54%; }
 .hero-soffit-main { bottom: 53%; }
 .hero-roof-wing   { bottom: 42%; }
 .hero-soffit-wing { bottom: 41%; }
 .hero-roof-entry  { bottom: 60%; }
 
-/* Entry glass panels */
 .hero-win-entry {
   background: linear-gradient(to right, rgba(200,130,20,0.9), rgba(200,130,20,0.3));
 }
 
-/* Main living room window wall — six panels fading right */
 .hero-win-1 { background: linear-gradient(135deg, rgba(220,140,28,0.78), rgba(190,110,18,0.60)); }
 .hero-win-2 { background: linear-gradient(135deg, rgba(210,130,24,0.72), rgba(180,100,14,0.54)); }
 .hero-win-3 { background: linear-gradient(135deg, rgba(200,120,20,0.65), rgba(170,90,12,0.48));  }
@@ -178,25 +175,22 @@ textarea {
 .hero-win-5 { background: linear-gradient(135deg, rgba(180,100,14,0.52), rgba(150,70,8,0.36));   }
 .hero-win-6 { background: linear-gradient(135deg, rgba(170,90,12,0.44),  rgba(140,60,6,0.28));   }
 
-/* Clerestory strip — thin window band at roofline */
 .hero-clerestory {
   bottom: 51%;
   background: linear-gradient(to right, rgba(190,110,18,0.40), rgba(150,80,12,0.22), rgba(120,60,8,0.12));
 }
 
-/* Right far-end wing windows */
 .hero-win-right {
   background: linear-gradient(135deg, rgba(160,80,10,0.38), rgba(120,58,6,0.22));
 }
 
-/* Pool water surface */
 .hero-pool {
   background: linear-gradient(to bottom, rgba(10,20,40,0.92), rgba(8,14,28,0.96));
 }
+
 .hero-pool-coping-top    { bottom: 13%; }
 .hero-pool-coping-bottom { bottom: 3%;  }
 
-/* Pool reflections of the lit windows */
 .hero-pool-ref-1 {
   bottom: 4%;
   background: linear-gradient(to bottom, rgba(180,110,18,0.22), rgba(120,70,10,0.06));
@@ -210,17 +204,14 @@ textarea {
   background: linear-gradient(to bottom, rgba(160,90,14,0.14), rgba(100,58,7,0.04));
 }
 
-/* Pool water shimmer overlay */
 .hero-pool-shimmer {
   bottom: 3%;
   background: radial-gradient(ellipse 70% 40% at 50% 50%, rgba(30,50,80,0.25) 0%, transparent 100%);
 }
 
-/* Landscape foliage edges */
 .hero-foliage-left  { background: linear-gradient(to top, #081008, rgba(14,26,14,0.50)); }
 .hero-foliage-right { background: linear-gradient(to top, #060a06, rgba(12,22,12,0.50)); }
 
-/* Exterior uplights & path lights */
 .hero-uplight-1 {
   bottom: 22%; left: 8%; width: 2%; height: 4%;
   background: radial-gradient(ellipse at bottom, rgba(200,140,30,0.35) 0%, transparent 80%);
@@ -235,12 +226,12 @@ textarea {
 }
 
 /* ─── Neighborhood placeholders ─────────────────────────── */
-.neighborhood-gradient-1 { background: linear-gradient(160deg, #2e2a22 0%, #5a4e38 55%, #967a54 100%); }
-.neighborhood-gradient-2 { background: linear-gradient(160deg, #181f28 0%, #263546 55%, #3e5872 100%); }
-.neighborhood-gradient-3 { background: linear-gradient(160deg, #261e2c 0%, #3c2e4c 55%, #604880 100%); }
-.neighborhood-gradient-4 { background: linear-gradient(160deg, #1c2820 0%, #2c4036 55%, #486858 100%); }
-.neighborhood-gradient-5 { background: linear-gradient(160deg, #28201a 0%, #4a3828 55%, #7a5e40 100%); }
-.neighborhood-gradient-6 { background: linear-gradient(160deg, #1e1e26 0%, #343448 55%, #505878 100%); }
+.neighborhood-gradient-1 { background: linear-gradient(155deg, #2a2000 0%, #7a5a10 45%, #c4922e 80%, #e8b84a 100%); }
+.neighborhood-gradient-2 { background: linear-gradient(155deg, #061828 0%, #0d3d60 45%, #1a6e9e 80%, #2a96cc 100%); }
+.neighborhood-gradient-3 { background: linear-gradient(155deg, #1e0c30 0%, #4e1e72 45%, #8b3fbf 80%, #b86ee0 100%); }
+.neighborhood-gradient-4 { background: linear-gradient(155deg, #041808 0%, #0e4020 45%, #1e7840 80%, #34b060 100%); }
+.neighborhood-gradient-5 { background: linear-gradient(155deg, #2a1000 0%, #7a3010 45%, #c05828 80%, #e87040 100%); }
+.neighborhood-gradient-6 { background: linear-gradient(155deg, #0c0820 0%, #261858 45%, #4a309e 80%, #6a50c8 100%); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

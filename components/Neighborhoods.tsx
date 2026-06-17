@@ -96,7 +96,7 @@ export default function Neighborhoods() {
                   </span>
                 </div>
                 <p className="mt-2 text-sm leading-6 text-white/72">{n.tagline}</p>
-                <p className="mt-3 text-xs font-semibold text-[#d4b87a]">
+                <p className="mt-3 text-xs font-semibold text-[#e0be6e]">
                   From {n.startingAt}
                 </p>
               </div>
@@ -114,7 +114,7 @@ export default function Neighborhoods() {
           </div>
           <a
             href="#concierge"
-            className="shrink-0 rounded-full bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#8c743f]"
+            className="shrink-0 rounded-full bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#9a7620]"
           >
             Ask the AI Concierge
           </a>
