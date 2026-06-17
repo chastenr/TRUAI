@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f5f0;
-  --foreground: #171717;
-  --charcoal: #202020;
-  --muted: #6f6a63;
+  --background: #f8f6f2;
+  --foreground: #1a1918;
+  --charcoal: #1a1918;
+  --muted: #6b6560;
   --champagne: #b9985a;
+  --champagne-light: #d4b87a;
+  --stone: #e8e2d8;
 }
 
 * {
@@ -30,33 +32,48 @@ textarea {
   font: inherit;
 }
 
+/* ─── Layout ─────────────────────────────────────────────── */
 .section-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1160px, calc(100% - 40px));
   margin-inline: auto;
 }
 
+/* ─── Typography ─────────────────────────────────────────── */
 .eyebrow {
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: var(--champagne);
 }
 
+/* Serif display font for headlines */
+.display-serif {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Elevation ──────────────────────────────────────────── */
 .premium-shadow {
-  box-shadow: 0 18px 48px rgba(19, 18, 16, 0.08);
+  box-shadow:
+    0 20px 60px rgba(19, 18, 16, 0.08),
+    0 4px 12px rgba(19, 18, 16, 0.04);
 }
 
-.reveal-down {
-  animation: reveal-down 0.8s ease-out both;
+.card-shadow {
+  box-shadow:
+    0 2px 8px rgba(19, 18, 16, 0.06),
+    0 1px 2px rgba(19, 18, 16, 0.03);
 }
 
+/* ─── Scroll reveal ──────────────────────────────────────── */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(-28px);
+  transform: translateY(22px);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+    opacity 0.65s ease,
+    transform 0.65s ease;
 }
 
 [data-reveal].is-visible {
@@ -64,78 +81,171 @@ textarea {
   transform: translateY(0);
 }
 
-.reveal-delay-1 {
-  animation-delay: 0.12s;
+.reveal-down {
+  animation: reveal-down 0.75s ease-out both;
 }
 
-.reveal-delay-2 {
-  animation-delay: 0.24s;
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.32s; }
+.reveal-delay-4 { animation-delay: 0.46s; }
+
+@keyframes reveal-down {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.reveal-delay-3 {
-  animation-delay: 0.36s;
-}
-
-.reveal-delay-4 {
-  animation-delay: 0.48s;
-}
-
+/* ─── Card hover lift ────────────────────────────────────── */
 .soft-lift {
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
 .soft-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(19, 18, 16, 0.08);
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 48px rgba(19, 18, 16, 0.1),
+    0 4px 12px rgba(19, 18, 16, 0.05);
 }
 
-@keyframes reveal-down {
-  from {
-    opacity: 0;
-    transform: translateY(-26px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ─── Property image placeholders ───────────────────────── */
+/* Simulate luxury property photography with layered gradients */
 .property-gradient-1 {
   background:
-    linear-gradient(135deg, rgba(10, 10, 10, 0.08), rgba(10, 10, 10, 0.54)),
-    linear-gradient(120deg, #d8d0c1, #7f837c 42%, #242424);
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #d8cfc0 0%, #b0a898 28%, #6a635a 52%, #2e2b27 76%, #151310 100%);
 }
 
 .property-gradient-2 {
   background:
-    linear-gradient(135deg, rgba(10, 10, 10, 0.04), rgba(10, 10, 10, 0.48)),
-    linear-gradient(120deg, #c9d4d2, #777b73 48%, #1e1d1c);
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #c2cecc 0%, #7f9694 28%, #3d5856 52%, #1c2e2d 76%, #0d1817 100%);
 }
 
 .property-gradient-3 {
   background:
-    linear-gradient(135deg, rgba(10, 10, 10, 0.06), rgba(10, 10, 10, 0.5)),
-    linear-gradient(120deg, #ddd4c2, #9d8f76 46%, #2a2928);
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #ddd5c4 0%, #b0a48e 28%, #6c5e48 52%, #312a1e 76%, #181410 100%);
 }
 
 .property-gradient-4 {
   background:
-    linear-gradient(135deg, rgba(10, 10, 10, 0.06), rgba(10, 10, 10, 0.5)),
-    linear-gradient(120deg, #c8c4bd, #7d817b 48%, #202124);
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #c4c8c6 0%, #848e8a 28%, #404845 52%, #1e2624 76%, #0f1513 100%);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+.property-gradient-5 {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #e2d8c2 0%, #baa882 28%, #7a6040 52%, #38281a 76%, #1c130b 100%);
+}
 
-  .reveal-down {
-    animation: none;
-  }
+.property-gradient-6 {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.54)),
+    linear-gradient(135deg, #cfc4c2 0%, #a08880 28%, #5e3e38 52%, #2c1c18 76%, #160e0c 100%);
+}
+
+/* ─── Hero background layers ────────────────────────────── */
+/* All CSS art classes for the blue-hour estate scene        */
+
+.hero-horizon-glow {
+  background: radial-gradient(ellipse 180% 70% at 62% 100%, rgba(140,72,20,0.55) 0%, rgba(80,36,8,0.3) 36%, transparent 68%);
+}
+
+.hero-sky-stars {
+  background: radial-gradient(ellipse 40% 50% at 70% 15%, rgba(160,170,220,0.3) 0%, transparent 100%);
+}
+
+/* Roof / soffit positioning */
+.hero-roof-main   { bottom: 54%; }
+.hero-soffit-main { bottom: 53%; }
+.hero-roof-wing   { bottom: 42%; }
+.hero-soffit-wing { bottom: 41%; }
+.hero-roof-entry  { bottom: 60%; }
+
+/* Entry glass panels */
+.hero-win-entry {
+  background: linear-gradient(to right, rgba(200,130,20,0.9), rgba(200,130,20,0.3));
+}
+
+/* Main living room window wall — six panels fading right */
+.hero-win-1 { background: linear-gradient(135deg, rgba(220,140,28,0.78), rgba(190,110,18,0.60)); }
+.hero-win-2 { background: linear-gradient(135deg, rgba(210,130,24,0.72), rgba(180,100,14,0.54)); }
+.hero-win-3 { background: linear-gradient(135deg, rgba(200,120,20,0.65), rgba(170,90,12,0.48));  }
+.hero-win-4 { background: linear-gradient(135deg, rgba(190,110,16,0.58), rgba(160,80,10,0.42));  }
+.hero-win-5 { background: linear-gradient(135deg, rgba(180,100,14,0.52), rgba(150,70,8,0.36));   }
+.hero-win-6 { background: linear-gradient(135deg, rgba(170,90,12,0.44),  rgba(140,60,6,0.28));   }
+
+/* Clerestory strip — thin window band at roofline */
+.hero-clerestory {
+  bottom: 51%;
+  background: linear-gradient(to right, rgba(190,110,18,0.40), rgba(150,80,12,0.22), rgba(120,60,8,0.12));
+}
+
+/* Right far-end wing windows */
+.hero-win-right {
+  background: linear-gradient(135deg, rgba(160,80,10,0.38), rgba(120,58,6,0.22));
+}
+
+/* Pool water surface */
+.hero-pool {
+  background: linear-gradient(to bottom, rgba(10,20,40,0.92), rgba(8,14,28,0.96));
+}
+.hero-pool-coping-top    { bottom: 13%; }
+.hero-pool-coping-bottom { bottom: 3%;  }
+
+/* Pool reflections of the lit windows */
+.hero-pool-ref-1 {
+  bottom: 4%;
+  background: linear-gradient(to bottom, rgba(180,110,18,0.22), rgba(120,70,10,0.06));
+}
+.hero-pool-ref-2 {
+  bottom: 4%;
+  background: linear-gradient(to bottom, rgba(170,100,16,0.18), rgba(110,64,8,0.05));
+}
+.hero-pool-ref-3 {
+  bottom: 4%;
+  background: linear-gradient(to bottom, rgba(160,90,14,0.14), rgba(100,58,7,0.04));
+}
+
+/* Pool water shimmer overlay */
+.hero-pool-shimmer {
+  bottom: 3%;
+  background: radial-gradient(ellipse 70% 40% at 50% 50%, rgba(30,50,80,0.25) 0%, transparent 100%);
+}
+
+/* Landscape foliage edges */
+.hero-foliage-left  { background: linear-gradient(to top, #081008, rgba(14,26,14,0.50)); }
+.hero-foliage-right { background: linear-gradient(to top, #060a06, rgba(12,22,12,0.50)); }
+
+/* Exterior uplights & path lights */
+.hero-uplight-1 {
+  bottom: 22%; left: 8%; width: 2%; height: 4%;
+  background: radial-gradient(ellipse at bottom, rgba(200,140,30,0.35) 0%, transparent 80%);
+}
+.hero-uplight-2 {
+  bottom: 22%; left: 13%; width: 2%; height: 4%;
+  background: radial-gradient(ellipse at bottom, rgba(200,140,30,0.30) 0%, transparent 80%);
+}
+.hero-pathlight {
+  bottom: 20%; left: 27%; width: 1%; height: 3%;
+  background: radial-gradient(ellipse at bottom, rgba(220,160,40,0.25) 0%, transparent 80%);
+}
+
+/* ─── Neighborhood placeholders ─────────────────────────── */
+.neighborhood-gradient-1 { background: linear-gradient(160deg, #2e2a22 0%, #5a4e38 55%, #967a54 100%); }
+.neighborhood-gradient-2 { background: linear-gradient(160deg, #181f28 0%, #263546 55%, #3e5872 100%); }
+.neighborhood-gradient-3 { background: linear-gradient(160deg, #261e2c 0%, #3c2e4c 55%, #604880 100%); }
+.neighborhood-gradient-4 { background: linear-gradient(160deg, #1c2820 0%, #2c4036 55%, #486858 100%); }
+.neighborhood-gradient-5 { background: linear-gradient(160deg, #28201a 0%, #4a3828 55%, #7a5e40 100%); }
+.neighborhood-gradient-6 { background: linear-gradient(160deg, #1e1e26 0%, #343448 55%, #505878 100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .reveal-down { animation: none; }
 
   [data-reveal] {
     opacity: 1;

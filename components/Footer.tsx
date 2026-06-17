@@ -1,17 +1,147 @@
+const quickLinks = [
+  { label: "Featured Listings", href: "#listings" },
+  { label: "Neighborhoods", href: "#neighborhoods" },
+  { label: "AI Concierge", href: "#concierge" },
+  { label: "Our Team", href: "#team" },
+  { label: "FAQ", href: "#faq" },
+];
+
+const services = [
+  { label: "Buy a Home", href: "#listings" },
+  { label: "Sell Your Property", href: "#crm" },
+  { label: "Schedule a Showing", href: "#crm" },
+  { label: "Request Buyer Consultation", href: "#crm" },
+  { label: "Relocation Services", href: "#crm" },
+  { label: "Investment Properties", href: "#listings" },
+];
+
+const demoLinks = [
+  { label: "AI Concierge Demo", href: "#concierge" },
+  { label: "CRM Lead Preview", href: "#crm" },
+  { label: "Trulience Integration", href: "#concierge" },
+  { label: "Buyer Journey Flow", href: "#concierge" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 py-10 text-white">
-      <div className="section-shell">
-        <div className="grid gap-8 md:grid-cols-[1fr_1.2fr]">
+    <footer className="bg-neutral-950 text-white">
+      {/* Main footer grid */}
+      <div className="section-shell py-14 sm:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          {/* Brand column */}
           <div>
-            <p className="text-lg font-semibold">Apex Luxe Realty Group</p>
-            <p className="mt-2 max-w-md text-sm leading-6 text-white/65">
-              Demo prototype powered by Trulience-style avatar technology and CRM-ready lead capture.
+            <div>
+              <p className="text-base font-semibold tracking-wide text-white">Apex Luxe</p>
+              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-white/40">
+                Realty Group
+              </p>
+            </div>
+            <p className="mt-4 max-w-xs text-sm leading-7 text-white/52">
+              Premier luxury real estate advisory serving Bel Air, Malibu, Beverly Hills,
+              Pacific Palisades, and greater Los Angeles.
             </p>
+            <div className="mt-6 space-y-1 text-sm text-white/50">
+              <p>Los Angeles, CA 90024</p>
+              <p>(310) 000 – 0000</p>
+              <p>info@apexluxerealty.com</p>
+            </div>
+            <div className="mt-6 flex gap-3">
+              {/* Social icon placeholders */}
+              {["Ig", "Li", "Fb"].map((s) => (
+                <span
+                  key={s}
+                  className="flex size-8 items-center justify-center rounded-full border border-white/14 text-[0.65rem] font-semibold text-white/45 transition hover:border-white/30 hover:text-white"
+                  aria-label={s}
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
           </div>
-          <p className="text-sm leading-7 text-white/58">
-            Proof-of-concept demo only. Final integrations depend on Trulience account access, CRM provider, and
-            approved API credentials.
+
+          {/* Quick links */}
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/35">
+              Quick Links
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              {quickLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-white/60 transition hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/35">
+              Services
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              {services.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-white/60 transition hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Demo / Tech */}
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/35">
+              Demo Features
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              {demoLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-white/60 transition hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 rounded-lg border border-[#b9985a]/25 bg-[#b9985a]/8 p-4">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#d4b87a]">
+                Powered by Trulience
+              </p>
+              <p className="mt-2 text-xs leading-5 text-white/45">
+                AI avatar technology for real estate lead qualification and CRM routing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-white/8" />
+
+      {/* Disclaimer bar */}
+      <div className="section-shell py-6">
+        <div className="flex flex-col gap-3 text-xs leading-6 text-white/32 sm:flex-row sm:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} Apex Luxe Realty Group. All rights reserved.
+          </p>
+          <p className="max-w-2xl sm:text-right">
+            <strong className="font-semibold text-white/42">Proof-of-concept demo only.</strong>{" "}
+            Apex Luxe Realty Group is a fictional brokerage created solely to demonstrate
+            Trulience avatar technology and AI-powered CRM lead routing for real estate.
+            No real transactions, listings, agents, or services are offered. Trulience
+            integrations require a valid account, approved API credentials, and production
+            configuration before going live.
           </p>
         </div>
       </div>

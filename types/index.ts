@@ -8,6 +8,7 @@ export type Listing = {
   squareFeet: string;
   imageClass: string;
   summary: string;
+  status?: string;
 };
 
 export type FAQ = {
