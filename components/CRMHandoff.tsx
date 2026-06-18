@@ -247,7 +247,7 @@ export default function CRMHandoff() {
                         : "bg-[#c49a3c] text-neutral-950 hover:bg-[#e0be6e]"
                   }`}
                 >
-                  {sentMessage ? "Lead Ready / Sent" : sending ? "Sending Lead..." : "Send Lead to CRM"}
+                  {sentMessage ? "Lead Ready / Sent" : sending ? "Sending Lead..." : "Submit"}
                 </button>
                 <p
                   className={`mt-2 text-center text-[0.62rem] ${
