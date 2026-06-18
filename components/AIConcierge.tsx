@@ -56,8 +56,8 @@ export default function AIConcierge() {
           </div>
           <p className="max-w-sm text-sm leading-7 text-white/50">
             NALA handles every conversation live through the avatar — by voice or text.
-            Watch the CRM lead card fill in below as buyers engage, then route it straight
-            to your platform with one click.
+            Use Trulience for the live conversation, then review the CRM-ready handoff
+            preview below for routing into your platform.
           </p>
         </div>
 

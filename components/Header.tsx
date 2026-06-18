@@ -41,7 +41,7 @@ export default function Header() {
           <span className={`text-[0.56rem] font-semibold uppercase tracking-[0.28em] transition-colors duration-300 ${
             scrolled ? "text-neutral-400" : "text-white/60"
           }`}>
-            Real Estate Group · KW Buckhead
+            Real Estate Group
           </span>
           <span className={`mt-0.5 text-[0.48rem] font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${
             scrolled ? "text-[#c49a3c]" : "text-[#e0be6e]/75"
