@@ -86,7 +86,7 @@ export default function AIConcierge() {
                 NEXT_PUBLIC_TRULIENCE_AVATAR_ID
                 NEXT_PUBLIC_TRULIENCE_TOKEN
             */}
-            <TrulienceEmbed height={480} />
+            <TrulienceEmbed />
 
             <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/35">
