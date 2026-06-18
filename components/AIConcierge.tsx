@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AskNalaButton from "./AskNalaButton";
 import NalaSupportPanel from "./NalaSupportPanel";
 import TrulienceEmbed from "./TrulienceEmbed";
 
@@ -34,9 +35,13 @@ export default function AIConcierge() {
               <a href="#crm-handoff" className="rounded-full bg-[#c49a3c] px-6 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]">
                 See Live Lead Card
               </a>
-              <a href="#listings" className="rounded-full border border-white/25 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/10">
+              <AskNalaButton
+                address=""
+                question="Which current listing should I look at first?"
+                className="rounded-full border border-white/25 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/10"
+              >
                 Ask About a Listing
-              </a>
+              </AskNalaButton>
             </div>
           </div>
         </div>

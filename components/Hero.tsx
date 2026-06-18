@@ -141,19 +141,21 @@ export default function Hero() {
                 ].map((q) => (
                   <AskNalaButton
                     key={q}
-                    address={q}
+                    address=""
+                    question={q}
                     className="block w-full rounded-lg border border-white/10 px-3 py-2.5 text-left text-xs leading-5 text-white/65 transition hover:border-[#c49a3c]/50 hover:bg-white/5 hover:text-white"
                   >
                     {q}
                   </AskNalaButton>
                 ))}
               </div>
-              <a
-                href="#concierge"
+              <AskNalaButton
+                address=""
+                question="I'd like to ask NALA about current Atlanta listings."
                 className="mt-5 block rounded-full bg-[#c49a3c] px-5 py-2.5 text-center text-xs font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
               >
                 Ask NALA a Question
-              </a>
+              </AskNalaButton>
             </div>
 
             <div className="border-t border-white/6 bg-black/20 px-5 py-2.5">

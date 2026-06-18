@@ -20,21 +20,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const upstream = await fetch(webhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(process.env.CRM_WEBHOOK_SECRET
-        ? { Authorization: `Bearer ${process.env.CRM_WEBHOOK_SECRET}` }
-        : {}),
-    },
-    body: JSON.stringify(payload),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.CRM_WEBHOOK_SECRET
+          ? { Authorization: `Bearer ${process.env.CRM_WEBHOOK_SECRET}` }
+          : {}),
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "CRM webhook unavailable" },
+      { status: 502 }
+    );
+  }
 
   if (!upstream.ok) {
     console.error("[CRM webhook] Upstream error:", upstream.status, await upstream.text());
     return NextResponse.json(
-      { error: "CRM webhook failed", status: upstream.status },
+      { ok: false, error: "CRM webhook failed", status: upstream.status },
       { status: 502 }
     );
   }

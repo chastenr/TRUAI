@@ -1,29 +1,31 @@
 "use client";
 
-// Client wrapper for the "Ask AI About This Property" CTA.
-// Scrolls to #concierge and fires a nala-ask event with a prefilled question.
-
 interface AskNalaButtonProps {
   address: string;
+  question?: string;
   className?: string;
   children?: React.ReactNode;
 }
 
-export default function AskNalaButton({ address, className, children }: AskNalaButtonProps) {
+export default function AskNalaButton({ address, question, className, children }: AskNalaButtonProps) {
   const handleClick = () => {
+    window.dispatchEvent(new CustomEvent("nala-open"));
+
     const section = document.getElementById("concierge");
     if (section) section.scrollIntoView({ behavior: "smooth" });
 
-    // Wait for scroll to land before firing the prefill event
     setTimeout(() => {
       window.dispatchEvent(
         new CustomEvent("nala-ask", {
           detail: {
-            question: `Tell me about the property at ${address}. What are the key features, pricing, and is it available for a showing?`,
+            question:
+              question ??
+              `Tell me about the property at ${address}. What are the key features, pricing, and is it available for a showing?`,
           },
         })
       );
-    }, 700);
+      window.dispatchEvent(new CustomEvent("nala-chat-focus"));
+    }, 250);
   };
 
   return (

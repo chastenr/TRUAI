@@ -35,8 +35,21 @@ export default function FeaturedListings() {
               key={listing.id}
               className="soft-lift card-shadow flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
             >
-              {/* Gradient placeholder — no listing photos used */}
+              {/* Listing media */}
               <div className={`${listing.imageClass} relative h-[230px] overflow-hidden`}>
+                {listing.imageUrl ? (
+                  <img
+                    src={listing.imageUrl}
+                    alt={`${listing.address} property photo`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm">
+                      Photo Coming Soon
+                    </div>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
 
                 <div className="absolute left-4 top-4">

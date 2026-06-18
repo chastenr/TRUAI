@@ -25,59 +25,82 @@ export default function NalaChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const messagesRef = useRef<Message[]>([GREETING]);
+  const loadingRef = useRef(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Scroll to bottom whenever messages change
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
+
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
 
-  // Listen for "nala-ask" events from listing card buttons
   useEffect(() => {
-    const handler = (e: Event) => {
+    const askHandler = (e: Event) => {
       const ce = e as CustomEvent<{ question: string }>;
       if (ce.detail?.question) {
         send(ce.detail.question);
       }
     };
-    window.addEventListener("nala-ask", handler);
-    return () => window.removeEventListener("nala-ask", handler);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages]);
+    const focusHandler = () => inputRef.current?.focus();
+
+    window.addEventListener("nala-ask", askHandler);
+    window.addEventListener("nala-chat-focus", focusHandler);
+
+    return () => {
+      window.removeEventListener("nala-ask", askHandler);
+      window.removeEventListener("nala-chat-focus", focusHandler);
+    };
+  }, []);
 
   async function send(text?: string) {
     const content = (text ?? input).trim();
-    if (!content || loading) return;
+    if (!content || loadingRef.current) return;
 
     const userMsg: Message = { role: "user", content };
-    const updated = [...messages, userMsg];
+    const updated = [...messagesRef.current, userMsg];
+    const apiMessages = updated.slice(1);
+
+    messagesRef.current = updated;
     setMessages(updated);
     setInput("");
     setLoading(true);
+    loadingRef.current = true;
     setError(null);
 
     try {
       const res = await fetch("/api/nala-core", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: updated }),
+        body: JSON.stringify({ messages: apiMessages }),
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) throw new Error("nala_unavailable");
 
       const { reply, leadDelta } = (await res.json()) as {
         reply: string;
         leadDelta: Parameters<typeof mergeLead>[0];
       };
 
-      setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+      if (!reply) throw new Error("nala_unavailable");
+
+      setMessages((prev) => {
+        const assistantMsg: Message = { role: "assistant", content: reply };
+        const next = [...prev, assistantMsg];
+        messagesRef.current = next;
+        return next;
+      });
       if (leadDelta && typeof leadDelta === "object") mergeLead(leadDelta);
     } catch {
-      setError("NALA is temporarily unavailable. Please try again in a moment.");
+      setError("NALA is connecting right now. Please try again in a moment.");
     } finally {
+      loadingRef.current = false;
       setLoading(false);
+      setTimeout(() => inputRef.current?.focus(), 0);
     }
   }
 

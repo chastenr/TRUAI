@@ -1,3 +1,5 @@
+import AskNalaButton from "./AskNalaButton";
+
 const neighborhoods = [
   {
     id: "buckhead",
@@ -108,12 +110,13 @@ export default function Neighborhoods() {
               NALA can compare schools, commutes, lifestyle, and pricing across every Abbie Shepherd market — instantly.
             </p>
           </div>
-          <a
-            href="#concierge"
+          <AskNalaButton
+            address=""
+            question="Can you compare Atlanta neighborhoods by lifestyle, schools, commute, and pricing?"
             className="shrink-0 rounded-full bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#9a7620]"
           >
             Ask NALA
-          </a>
+          </AskNalaButton>
         </div>
       </div>
     </section>

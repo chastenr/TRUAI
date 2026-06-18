@@ -10,7 +10,7 @@ function useLead() {
 
 export default function NalaSupportPanel() {
   const lead = useLead();
-  const hasData = !!(lead.name || lead.phone || lead.email || lead.property || lead.budget);
+  const hasData = !!(lead.name || lead.phone || lead.email || lead.propertyInterest || lead.budget);
 
   return (
     <div className="flex h-full min-h-[560px] flex-col gap-4">
@@ -85,7 +85,7 @@ export default function NalaSupportPanel() {
         <div className="divide-y divide-white/6">
           {[
             { label: "Buyer Name", value: lead.name },
-            { label: "Interested Property", value: lead.property },
+            { label: "Interested Property", value: lead.propertyInterest },
             { label: "Budget", value: lead.budget },
             { label: "Timeline", value: lead.timeline },
           ].map(({ label, value }) => (

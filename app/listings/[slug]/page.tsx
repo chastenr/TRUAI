@@ -44,8 +44,21 @@ export default async function ListingDetailPage({
 
   return (
     <main className="min-h-screen bg-[#f7f5f0]">
-      {/* Hero banner — gradient placeholder, no unlicensed photos */}
+      {/* Hero banner */}
       <div className={`${p.imageClass} relative h-[52vh] min-h-[400px] overflow-hidden sm:h-[62vh]`}>
+        {p.imageUrl ? (
+          <img
+            src={p.imageUrl}
+            alt={`${p.address} property photo`}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm">
+              Photo Coming Soon
+            </div>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
 
         {/* Back link */}

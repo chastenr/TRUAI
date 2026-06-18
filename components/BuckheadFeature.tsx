@@ -1,4 +1,5 @@
 import { featuredListing as p } from "@/data/listings";
+import AskNalaButton from "./AskNalaButton";
 
 export default function BuckheadFeature() {
   return (
@@ -28,8 +29,21 @@ export default function BuckheadFeature() {
         <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_400px]">
           {/* Left: property image + overview */}
           <div>
-            {/* Property image placeholder */}
+            {/* Property media */}
             <div className={`${p.imageClass} relative h-[320px] overflow-hidden rounded-2xl sm:h-[400px]`}>
+              {p.imageUrl ? (
+                <img
+                  src={p.imageUrl}
+                  alt={`${p.address} property photo`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm">
+                    Photo Coming Soon
+                  </div>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               {/* Specs overlay at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -132,12 +146,12 @@ export default function BuckheadFeature() {
 
             {/* CTAs */}
             <div className="flex flex-col gap-3">
-              <a
-                href="/#concierge"
+              <AskNalaButton
+                address={p.address}
                 className="block rounded-full bg-[#c49a3c] px-5 py-3.5 text-center text-sm font-semibold text-neutral-950 transition hover:bg-white"
               >
                 Ask NALA About This Property
-              </a>
+              </AskNalaButton>
               <a
                 href="/#crm"
                 className="block rounded-full border border-white/20 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"

@@ -20,6 +20,8 @@ export const listings: Listing[] = [
     halfBaths: 1,
     squareFeet: "4,577",
     imageClass: "property-gradient-1",
+    imageUrl:
+      "https://photos.prod.cirrussystem.net/974/44a53380e1de9657376d7e121af980c9/1469601422.jpeg",
     summary:
       "Four-bedroom, 4.5-bath home in the Spindlewick subdivision of Sandy Springs. Over 4,500 sq ft with easy access to GA-400, Sandy Springs City Center, and top-rated Fulton County schools.",
     financials: {
@@ -60,6 +62,8 @@ export const listings: Listing[] = [
     halfBaths: 0,
     squareFeet: "9,488",
     imageClass: "property-gradient-2",
+    imageUrl:
+      "https://photos.prod.cirrussystem.net/974/22b125b5669be22c493c5f1469b12591/3745779082.jpeg",
     summary:
       "Estate-sized home in the Lakeside at Ansley community of Roswell. Seven bedrooms and nearly 9,500 sq ft of living space near downtown Roswell's Canton Street dining corridor and Roswell Area Park.",
     financials: {
@@ -100,6 +104,8 @@ export const listings: Listing[] = [
     halfBaths: 1,
     squareFeet: "3,777",
     imageClass: "property-gradient-3",
+    imageUrl:
+      "https://photos.prod.cirrussystem.net/903/dff049a4d72c5d1d328a5a7281b724bc/1075235963.jpeg",
     summary:
       "Four-bedroom home on Overlook Trail in Acworth, north of Atlanta near Lake Allatoona. Nearly 3,800 sq ft in a quiet residential corridor off I-75 with Cherokee County schools.",
     financials: {
@@ -125,45 +131,53 @@ export const listings: Listing[] = [
     disclosure: DISCLOSURE,
   },
   {
-    id: "hill-st-grant-park",
-    slug: "hill-st-grant-park",
-    status: "For Sale",
-    price: "$895,000",
-    pricePerSqFt: "$355",
-    address: "960 Hill ST SE",
-    neighborhood: "Grant Park · Atlanta",
-    city: "Atlanta",
+    id: "hampton-lake-marietta",
+    slug: "hampton-lake-marietta",
+    status: "Coming Soon",
+    price: "$850,000",
+    pricePerSqFt: "$266",
+    address: "4824 Hampton Lake Drive",
+    neighborhood: "Hampton Lake · Marietta",
+    city: "Marietta",
     state: "GA",
-    zip: "30315",
+    zip: "30068",
     beds: 4,
     baths: 2,
     halfBaths: 1,
-    squareFeet: "2,520",
+    squareFeet: "3,190",
     imageClass: "property-gradient-4",
+    imageUrl:
+      "https://photos.prod.cirrussystem.net/974/e4b6555e4f817a727dcc836b47a8bcaa/1625864502.jpeg",
     summary:
-      "Four-bedroom home in Atlanta's historic Grant Park neighborhood. 2,520 sq ft steps from the Atlanta Zoo, Grant Park trail system, and the Georgia Avenue restaurant and retail district.",
+      "Four-bedroom home in Marietta's Hampton Lake community. 3,190 sq ft with flexible living spaces, a bonus room, private backyard, and convenient access to shopping, dining, parks, and major routes.",
     financials: {
-      estimatedMonthly: "Verify with lender",
-      estimatedPropertyTax: "Verify with listing agent",
-      hoa: "Verify with listing agent",
+      estimatedMonthly: "$3,878",
+      estimatedPropertyTax: "$1,467",
+      hoa: "$70.83 monthly",
       showingRequirement: "Contact Abbie Shepherd Real Estate Group",
     },
     features: [
       "Single Family Residence",
-      "Historic Grant Park neighborhood",
-      "Intown Atlanta location",
-      "Atlanta Public Schools district",
-      "Near I-20",
+      "Built in 1982",
+      "2 full baths and 1 partial bath",
+      "Bonus room",
+      "Hardwood floors on much of main level",
+      "Updated kitchen with white cabinetry, granite countertops, and stainless appliances",
+      "Sunroom with skylights",
+      "Primary suite with renovated spa-style bath",
+      "Private wooded backyard",
+      "2-car attached garage",
     ],
     nearby: [
-      "Atlanta Zoo — nearby",
-      "Grant Park trail system — nearby",
-      "Georgia Ave dining district — nearby",
-      "Downtown Atlanta — nearby",
+      "The Avenue East Cobb — nearby",
+      "Parks and trails — nearby",
+      "Major routes — nearby",
+      "Hampton Lake swim and tennis community",
     ],
     listingUrl: "https://www.abbieagent.com/listings/",
     disclosure: DISCLOSURE,
   },
+
   {
     id: "kelvington-peachtree-city",
     slug: "kelvington-peachtree-city",
@@ -180,6 +194,8 @@ export const listings: Listing[] = [
     halfBaths: 1,
     squareFeet: "6,265",
     imageClass: "property-gradient-5",
+    imageUrl:
+      "https://photos.prod.cirrussystem.net/903/dfba7f414642dd3b4aa7f8396d689c06/3480274683.jpeg",
     summary:
       "Five-bedroom home in the Maple Shade subdivision of Peachtree City. Over 6,200 sq ft in a well-established community on Peachtree City's golf cart path network, near McIntosh High School and Peachtree City Town Center.",
     financials: {
@@ -220,6 +236,7 @@ export const listings: Listing[] = [
     halfBaths: 0,
     squareFeet: "3,994",
     imageClass: "property-gradient-6",
+    imageUrl: "https://photos.prod.cirrussystem.net/903/78cc8c70b92f134f773e79a58dfc963e/3765238265.jpeg",
     summary:
       "Five-bedroom, five-bath home in the Ivey Chase subdivision of Dacula. Nearly 4,000 sq ft in a well-established east Atlanta community near Gwinnett County schools, Mall of Georgia, and Hwy 316.",
     financials: {
