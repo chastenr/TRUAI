@@ -170,16 +170,16 @@ export default function NalaFloatButton() {
           </button>
         </div>
 
-        {/* Live avatar iframe — always mounted so it pre-connects */}
+        {/* Live NALA avatar iframe — always mounted so it pre-connects */}
         <div className="relative flex-1 overflow-hidden">
           <iframe
             width="100%"
             height="100%"
-            src="https://trulience.com/avatar/8657426931336757879"
+            src="https://trulience.com/avatar/8657426931336757879?hideChatInput=false&hideChatHistory=false&connect=true"
             frameBorder="0"
             allow="camera; microphone; fullscreen; accelerometer; magnetometer; xr-spatial-tracking; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title="NALA — Luminary Realty AI Concierge"
+            title="NALA — Abbie Shepherd Real Estate Group"
             className="absolute inset-0 h-full w-full"
           />
         </div>

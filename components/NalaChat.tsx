@@ -6,18 +6,18 @@ import { mergeLead } from "@/lib/lead-store";
 type Message = { role: "user" | "assistant"; content: string };
 
 const CHIPS = [
-  "Is 4188 Ridge Hollow Drive still available?",
-  "What are the monthly costs on the Wieuca property?",
-  "Which Buckhead homes are under $4M?",
-  "I'm relocating from New York — which area should I start with?",
-  "Can I schedule a private showing this week?",
-  "Tell me about the Vinings property.",
+  "Is 395 Spindle CT in Sandy Springs still available?",
+  "Tell me about the Grant Park property on Hill ST.",
+  "What's the price per sq ft on the Roswell estate?",
+  "I'm relocating to Atlanta — where should I start looking?",
+  "Can I schedule a showing this week?",
+  "Tell me about the Peachtree City listing.",
 ];
 
 const GREETING: Message = {
   role: "assistant",
   content:
-    "Hi! I'm NALA, your AI real estate concierge for Luminary Realty Group. I have full details on all five Atlanta luxury listings and I'm here 24/7. What would you like to know?",
+    "Hi! I'm NALA, your AI real estate concierge for Abbie Shepherd Real Estate Group. I have details on current Atlanta-area listings and I'm here 24/7. What would you like to know?",
 };
 
 export default function NalaChat() {

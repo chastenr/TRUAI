@@ -2,50 +2,50 @@ const neighborhoods = [
   {
     id: "buckhead",
     name: "Buckhead",
-    tagline: "Atlanta's most prestigious address — gated estates, elite schools, fine dining.",
-    activeListings: 12,
-    startingAt: "$2.9M",
+    tagline: "Intown Atlanta's premier address — upscale living, top private schools, Buckhead Village dining.",
+    activeListings: 14,
+    startingAt: "$800K+",
     gradientClass: "neighborhood-gradient-1",
-  },
-  {
-    id: "north-buckhead",
-    name: "North Buckhead",
-    tagline: "New construction luxury and upscale residential living near GA-400.",
-    activeListings: 8,
-    startingAt: "$3.2M",
-    gradientClass: "neighborhood-gradient-2",
-  },
-  {
-    id: "chastain-park",
-    name: "Chastain Park",
-    tagline: "Charm, mature canopy, golf course proximity, and park-side estate living.",
-    activeListings: 6,
-    startingAt: "$2.6M",
-    gradientClass: "neighborhood-gradient-3",
-  },
-  {
-    id: "sandy-springs",
-    name: "Sandy Springs",
-    tagline: "Spacious lots, top-rated schools, easy GA-400 access, and true privacy.",
-    activeListings: 10,
-    startingAt: "$1.9M",
-    gradientClass: "neighborhood-gradient-4",
-  },
-  {
-    id: "vinings",
-    name: "Vinings",
-    tagline: "Modern convenience, The Battery Atlanta, and excellent I-285 connectivity.",
-    activeListings: 5,
-    startingAt: "$2.1M",
-    gradientClass: "neighborhood-gradient-5",
   },
   {
     id: "brookhaven",
     name: "Brookhaven",
-    tagline: "Vibrant dining scene, community feel, and luxury homes at relative value.",
-    activeListings: 9,
-    startingAt: "$1.7M",
+    tagline: "Vibrant intown community with strong walkability, award-winning schools, and a thriving dining scene.",
+    activeListings: 11,
+    startingAt: "$500K+",
     gradientClass: "neighborhood-gradient-6",
+  },
+  {
+    id: "sandy-springs",
+    name: "Sandy Springs",
+    tagline: "Spacious homes, top-rated Fulton County schools, and easy GA-400 access.",
+    activeListings: 10,
+    startingAt: "$600K+",
+    gradientClass: "neighborhood-gradient-4",
+  },
+  {
+    id: "east-cobb-roswell",
+    name: "East Cobb / Roswell",
+    tagline: "Family-friendly communities, excellent Cobb County schools, and north Atlanta convenience.",
+    activeListings: 18,
+    startingAt: "$450K+",
+    gradientClass: "neighborhood-gradient-2",
+  },
+  {
+    id: "midtown-decatur",
+    name: "Midtown / Decatur",
+    tagline: "Urban living with arts, dining, and walkable neighborhoods in the heart of Atlanta.",
+    activeListings: 9,
+    startingAt: "$400K+",
+    gradientClass: "neighborhood-gradient-3",
+  },
+  {
+    id: "peachtree-city",
+    name: "Peachtree City / South Atlanta",
+    tagline: "Golf cart community living, Fayette County schools, and family-focused neighborhoods.",
+    activeListings: 7,
+    startingAt: "$400K+",
+    gradientClass: "neighborhood-gradient-5",
   },
 ];
 
@@ -62,8 +62,8 @@ export default function Neighborhoods() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-7 text-neutral-500">
-            Our advisors specialize in Atlanta&apos;s most sought-after communities. Ask NALA
-            to compare neighborhoods or suggest the right area for your lifestyle.
+            Abbie Shepherd Real Estate Group serves buyers and sellers across greater Atlanta.
+            Ask NALA to compare neighborhoods, schools, commutes, or pricing — instantly.
           </p>
         </div>
 
@@ -103,9 +103,9 @@ export default function Neighborhoods() {
         {/* Ask AI CTA */}
         <div className="mt-10 flex flex-col items-center gap-3 rounded-lg border border-neutral-200 bg-white px-6 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <p className="font-semibold text-neutral-950">Not sure which Atlanta neighborhood fits your lifestyle?</p>
+            <p className="font-semibold text-neutral-950">Not sure which Greater Atlanta community fits your needs?</p>
             <p className="mt-1 text-sm text-neutral-500">
-              NALA can compare schools, commutes, lifestyle, and pricing across every market — instantly.
+              NALA can compare schools, commutes, lifestyle, and pricing across every Abbie Shepherd market — instantly.
             </p>
           </div>
           <a

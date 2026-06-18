@@ -21,24 +21,25 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Atlanta Luxury Real Estate | Luminary Realty Group",
+  title: "Abbie Shepherd Real Estate Group | Powered by NALA",
   description:
-    "Premier luxury real estate brokerage serving Buckhead, North Buckhead, Sandy Springs, Vinings, Chastain Park, and greater Atlanta. Browse exclusive estates, connect with top advisors, and get instant answers through NALA — our 24/7 AI concierge.",
+    "Abbie Shepherd Real Estate Group — Keller Williams Buckhead. Serving buyers and sellers across Buckhead, Brookhaven, Sandy Springs, East Cobb, Roswell, Midtown, Decatur, and greater Atlanta. Powered by NALA, a 24/7 AI real estate concierge.",
   keywords: [
-    "luxury real estate Atlanta",
-    "Buckhead homes for sale",
-    "North Buckhead luxury estates",
+    "Abbie Shepherd real estate",
+    "Atlanta homes for sale",
+    "Buckhead real estate",
+    "Brookhaven homes",
     "Sandy Springs real estate",
-    "Vinings homes for sale",
+    "Keller Williams Buckhead",
     "Atlanta AI real estate concierge",
     "NALA real estate AI",
   ],
   openGraph: {
-    title: "Atlanta Luxury Real Estate | Luminary Realty Group",
+    title: "Abbie Shepherd Real Estate Group | Powered by NALA",
     description:
-      "Browse curated estate listings, ask questions through NALA our AI concierge, and connect with a luxury Atlanta advisor — all on one premium brokerage platform.",
+      "Browse real Atlanta listings from Abbie Shepherd Real Estate Group, ask questions through NALA — the 24/7 AI concierge — and connect with an advisor who knows your market.",
     type: "website",
-    siteName: "Luminary Realty Group",
+    siteName: "Abbie Shepherd Real Estate Group",
   },
   robots: {
     index: true,

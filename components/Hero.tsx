@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           src="/hero-bg.png"
-          alt="Luxury Atlanta estate — Luminary Realty Group powered by NALA"
+          alt="Atlanta real estate — Abbie Shepherd Real Estate Group powered by NALA"
           fill
           priority
           className="object-cover object-center"
@@ -50,7 +50,7 @@ export default function Hero() {
             </div>
 
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[#c49a3c]">
-              Luminary Realty Group &nbsp;·&nbsp; Atlanta, Georgia
+              Abbie Shepherd Real Estate Group &nbsp;·&nbsp; Atlanta, Georgia
             </p>
             <h1 className="display-serif mt-4 text-[2.8rem] leading-[1.06] text-white drop-shadow-xl sm:text-[3.8rem] lg:text-[4.8rem]">
               Never Miss Another<br />
@@ -129,15 +129,15 @@ export default function Hero() {
 
             <div className="p-5">
               <p className="text-sm leading-7 text-white/70">
-                &ldquo;Hello! I&apos;m NALA — your AI real estate concierge for Luminary Realty Group.
-                Ask me about any of our Atlanta luxury listings, pricing, neighborhoods,
+                &ldquo;Hello! I&apos;m NALA — your AI real estate concierge for Abbie Shepherd Real Estate Group.
+                Ask me about any of our Atlanta listings, pricing, neighborhoods,
                 or showing availability. I&apos;m here 24/7.&rdquo;
               </p>
               <div className="mt-4 space-y-2">
                 {[
-                  "Is 4188 Ridge Hollow Drive still available?",
-                  "Which Buckhead homes have a pool under $4.5M?",
-                  "Can I tour the Vinings property this weekend?",
+                  "Is 395 Spindle CT in Sandy Springs still available?",
+                  "Tell me about the Grant Park property on Hill ST.",
+                  "Can I schedule a showing for 510 Grove Park Place?",
                 ].map((q) => (
                   <AskNalaButton
                     key={q}
@@ -158,7 +158,7 @@ export default function Hero() {
 
             <div className="border-t border-white/6 bg-black/20 px-5 py-2.5">
               <p className="text-[0.6rem] text-white/30">
-                Powered by NALA — AI Real Estate Concierge
+                Powered by NALA — Northside Advanced Learning Applications, Inc.
               </p>
             </div>
           </div>

@@ -244,8 +244,8 @@ textarea {
   to   { opacity: 1; transform: scale(1)   translateY(0);    }
 }
 
-/* ─── Trulience avatar embed ─────────────────────────────── */
-.trulience-wrap {
+/* ─── NALA avatar embed ──────────────────────────────────── */
+.nala-avatar-wrap {
   aspect-ratio: 9 / 16;
   min-height: 520px;
   max-height: 680px;

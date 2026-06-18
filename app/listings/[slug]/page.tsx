@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { listings } from "@/data/listings";
 import DocUpload from "@/components/DocUpload";
@@ -18,17 +17,10 @@ export async function generateMetadata({
   const listing = listings.find((l) => l.slug === slug);
   if (!listing) return { title: "Listing Not Found" };
   return {
-    title: `${listing.address} | ${listing.neighborhood} | Luminary Realty Group`,
+    title: `${listing.address} | ${listing.neighborhood} | Abbie Shepherd Real Estate Group`,
     description: listing.summary,
   };
 }
-
-const galleryExtras = [
-  { url: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&h=400&fit=crop&auto=format&q=80", label: "Great Room" },
-  { url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop&auto=format&q=80", label: "Chef's Kitchen" },
-  { url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop&auto=format&q=80", label: "Pool & Outdoor" },
-  { url: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop&auto=format&q=80", label: "Primary Suite" },
-];
 
 export default async function ListingDetailPage({
   params,
@@ -39,18 +31,21 @@ export default async function ListingDetailPage({
   const p = listings.find((l) => l.slug === slug);
   if (!p) notFound();
 
+  const specs = [
+    { label: "Bedrooms",   value: `${p.beds}` },
+    { label: "Full Baths", value: `${p.baths}` },
+    { label: "Half Baths", value: `${p.halfBaths}` },
+    { label: "Sq Ft",      value: p.squareFeet },
+    { label: "Lot Size",   value: p.lotSize ?? "Verify with agent" },
+    { label: "Year Built", value: p.yearBuilt ? `${p.yearBuilt}` : "Verify with agent" },
+    { label: "Garage",     value: p.garage ?? "Verify with agent" },
+    { label: "HOA",        value: p.financials.hoa },
+  ];
+
   return (
     <main className="min-h-screen bg-[#f7f5f0]">
-      {/* Hero banner */}
-      <div className="relative h-[52vh] min-h-[400px] overflow-hidden bg-neutral-950 sm:h-[62vh]">
-        <Image
-          src="/images/concierge-header.png"
-          alt={`${p.address} exterior`}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+      {/* Hero banner — gradient placeholder, no unlicensed photos */}
+      <div className={`${p.imageClass} relative h-[52vh] min-h-[400px] overflow-hidden sm:h-[62vh]`}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
 
         {/* Back link */}
@@ -88,16 +83,7 @@ export default async function ListingDetailPage({
 
         {/* Specs strip */}
         <div className="grid grid-cols-2 gap-3 rounded-xl border border-neutral-200 bg-white p-5 sm:grid-cols-4 lg:grid-cols-8">
-          {[
-            { label: "Bedrooms",   value: `${p.beds}` },
-            { label: "Full Baths", value: `${p.baths}` },
-            { label: "Half Baths", value: `${p.halfBaths}` },
-            { label: "Sq Ft",      value: p.squareFeet },
-            { label: "Lot Size",   value: p.lotSize },
-            { label: "Year Built", value: `${p.yearBuilt}` },
-            { label: "Garage",     value: p.garage },
-            { label: "HOA",        value: p.financials.hoa },
-          ].map((s) => (
+          {specs.map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-base font-semibold text-neutral-950 sm:text-lg">{s.value}</p>
               <p className="mt-0.5 text-[0.62rem] font-semibold uppercase tracking-wider text-neutral-400">{s.label}</p>
@@ -110,49 +96,25 @@ export default async function ListingDetailPage({
 
           {/* Left: details */}
           <div className="space-y-6">
-            {/* Gallery */}
-            <section>
-              <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-400">Photo Gallery</h2>
-              <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {/* Main listing photo */}
-                <div className="relative col-span-2 h-44 overflow-hidden rounded-lg sm:col-span-2">
-                  <Image
-                    src={p.imageUrl}
-                    alt={`${p.address} exterior`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <p className="absolute bottom-2 left-3 text-[0.65rem] font-semibold text-white/90">Main Facade</p>
-                </div>
-                {/* Extra gallery tiles */}
-                {galleryExtras.map((g) => (
-                  <div key={g.label} className="relative h-44 overflow-hidden rounded-lg">
-                    <Image
-                      src={g.url}
-                      alt={g.label}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <p className="absolute bottom-2 left-3 text-[0.65rem] font-semibold text-white/90">{g.label}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-2 text-[0.7rem] text-neutral-400">Gallery placeholder — professional photography available upon request.</p>
-            </section>
-
             {/* Overview */}
             <section className="rounded-xl border border-neutral-200 bg-white p-6">
               <h2 className="text-lg font-semibold text-neutral-950">Property Overview</h2>
               <p className="mt-3 text-sm leading-7 text-neutral-600">{p.summary}</p>
+              {p.listingUrl && (
+                <a
+                  href={p.listingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#9a7620] hover:underline"
+                >
+                  View original listing on abbieagent.com →
+                </a>
+              )}
             </section>
 
             {/* Features */}
             <section className="rounded-xl border border-neutral-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-neutral-950">Key Features</h2>
+              <h2 className="text-lg font-semibold text-neutral-950">Key Facts</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-neutral-700">
@@ -165,7 +127,7 @@ export default async function ListingDetailPage({
 
             {/* Neighborhood */}
             <section className="rounded-xl border border-neutral-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-neutral-950">Neighborhood Highlights</h2>
+              <h2 className="text-lg font-semibold text-neutral-950">Area Highlights</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {p.nearby.map((n) => (
                   <li key={n} className="flex items-start gap-2 text-sm text-neutral-700">
@@ -178,7 +140,7 @@ export default async function ListingDetailPage({
 
             {/* Disclosure */}
             <p className="rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-xs leading-6 text-neutral-500">
-              <strong className="font-semibold text-neutral-700">Disclosure:</strong> {p.disclosure}
+              <strong className="font-semibold text-neutral-700">Data Notice:</strong> {p.disclosure}
             </p>
           </div>
 
@@ -186,7 +148,7 @@ export default async function ListingDetailPage({
           <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
             {/* Financial summary */}
             <div className="rounded-xl border border-neutral-200 bg-white p-6">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-neutral-400">Financial Summary</p>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-neutral-400">Listing Price</p>
               <p className="mt-2 text-2xl font-semibold text-neutral-950">{p.price}</p>
               <dl className="mt-4 divide-y divide-neutral-100 text-sm">
                 {[
@@ -202,7 +164,7 @@ export default async function ListingDetailPage({
                 ))}
               </dl>
               <p className="mt-3 text-[0.65rem] leading-5 text-neutral-400">
-                Estimates for demo purposes only. Verify with lender and advisor.
+                Financial details must be verified with the listing agent and your lender.
               </p>
             </div>
 
@@ -212,7 +174,7 @@ export default async function ListingDetailPage({
                 address={p.address}
                 className="block w-full rounded-full bg-[#c49a3c] px-5 py-3.5 text-center text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
               >
-                Ask AI About This Property
+                Ask NALA About This Property
               </AskNalaButton>
               <a
                 href="/#crm"
@@ -243,8 +205,8 @@ export default async function ListingDetailPage({
                 </div>
               </div>
               <p className="mt-3 text-xs leading-6 text-white/65">
-                NALA can answer questions about pricing, features, neighborhood, showing
-                availability, and financial estimates instantly, any time of day.
+                NALA can answer questions about pricing, neighborhood, showing
+                availability, and area comparisons — instantly, any time of day.
               </p>
               <AskNalaButton
                 address={p.address}

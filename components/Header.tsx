@@ -33,15 +33,15 @@ export default function Header() {
         <a
           href="#top"
           className="flex shrink-0 flex-col leading-tight"
-          aria-label="Luminary Realty Group home"
+          aria-label="Abbie Shepherd Real Estate Group home"
         >
           <span className={`text-[0.96rem] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}>
-            Luminary Realty
+            Abbie Shepherd
           </span>
           <span className={`text-[0.56rem] font-semibold uppercase tracking-[0.28em] transition-colors duration-300 ${
             scrolled ? "text-neutral-400" : "text-white/60"
           }`}>
-            Luxury Real Estate Group
+            Real Estate Group · KW Buckhead
           </span>
           <span className={`mt-0.5 text-[0.48rem] font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${
             scrolled ? "text-[#c49a3c]" : "text-[#e0be6e]/75"
@@ -138,7 +138,7 @@ export default function Header() {
           <div className="mt-5 flex items-center gap-2 rounded-lg bg-neutral-50 px-3 py-2.5">
             <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#c49a3c] text-[0.5rem] font-bold text-white">N</span>
             <span className="text-[0.62rem] font-semibold text-neutral-500">
-              Powered by NALA — Northside Advanced Learning Applications, Inc.
+              NALA-powered demo — Northside Advanced Learning Applications, Inc.
             </span>
           </div>
         </nav>

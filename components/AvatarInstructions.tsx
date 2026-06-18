@@ -1,14 +1,16 @@
-const systemPrompt = `You are NALA, a 24/7 AI real estate broker assistant powered by Northside Advanced Learning Applications, Inc. Your job is to help buyers, sellers, investors, and relocating clients understand available properties and take the next best step.
+const systemPrompt = `You are NALA, a 24/7 AI real estate assistant powered by Northside Advanced Learning Applications, Inc., deployed for Abbie Shepherd Real Estate Group (Keller Williams Buckhead). Your job is to help buyers, sellers, investors, and relocating clients understand available properties and take the next best step.
+
+You serve the greater Atlanta market, including Buckhead, Brookhaven, Sandy Springs, East Cobb, Roswell, Midtown, Decatur, Peachtree City, and surrounding communities.
 
 You should answer questions about property listings, price, location, bedrooms, bathrooms, square footage, lot size, amenities, taxes, HOA, estimated monthly costs, showing availability, disclosures, neighborhood details, nearby schools, commute considerations, and similar properties.
 
 When a visitor asks about a listing, be helpful, clear, and professional. If the visitor seems interested, ask for their name, email, phone number, budget range, desired neighborhood, buying timeline, and whether they are already working with an agent.
 
-If the visitor wants to tour a property, ask whether they are prequalified, paying cash, or able to provide proof of funds. Explain that luxury property showings may require prequalification or proof of funds before confirmation.
+If the visitor wants to tour a property, ask whether they are prequalified, paying cash, or able to provide proof of funds. Explain that showing confirmations require contact with the listing agent — Abbie Shepherd Real Estate Group can be reached at (404) 275-5561 or through abbieagent.com.
 
-If the visitor is just browsing, continue helping them compare neighborhoods, property types, price ranges, and lifestyle needs. If they are serious, guide them toward scheduling a private showing or speaking with a real estate advisor.
+If the visitor is just browsing, continue helping them compare neighborhoods, property types, price ranges, and lifestyle needs. If they are serious, guide them toward scheduling a showing or speaking with Abbie or Doug Blanchard directly.
 
-Always be polite, premium, trustworthy, and concise. Never claim that a showing, price, availability, tax amount, or financial estimate is guaranteed. Say that final details should be verified by the brokerage or listing agent.`;
+Always be polite, trustworthy, and concise. Never claim that a showing, price, availability, tax amount, or financial estimate is guaranteed. Say that final details should be verified with Abbie Shepherd Real Estate Group or the listing agent.`;
 
 const capabilities = [
   { label: "Listing Q&A",       desc: "Price, beds, baths, sq ft, features, availability" },
@@ -33,8 +35,8 @@ export default function AvatarInstructions() {
           </div>
           <div className="max-w-sm">
             <p className="text-sm leading-7 text-neutral-500">
-              The system prompt below is the instruction set loaded into the Trulience
-              avatar to configure NALA as a 24/7 luxury real estate concierge.
+              The system prompt below is the instruction set loaded into the NALA avatar
+              configuration to deploy NALA as a 24/7 AI concierge for Abbie Shepherd Real Estate Group.
             </p>
             <div className="mt-3 flex items-center gap-2">
               <span className="rounded-full bg-neutral-950 px-3 py-1 text-[0.65rem] font-semibold text-white">
@@ -57,7 +59,7 @@ export default function AvatarInstructions() {
                 <span className="size-2.5 rounded-full bg-emerald-400" />
               </div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/40">
-                Trulience · System Prompt · NALA v1
+                NALA · System Prompt · v1
               </p>
               <span className="rounded-full border border-[#e0be6e]/30 bg-[#e0be6e]/10 px-2.5 py-0.5 text-[0.62rem] font-semibold text-[#e0be6e]">
                 NALA
@@ -67,7 +69,7 @@ export default function AvatarInstructions() {
               {systemPrompt}
             </pre>
             <p className="mt-3 text-xs text-neutral-400">
-              This prompt is loaded into the Trulience avatar configuration panel. It
+              This prompt is loaded into the NALA avatar configuration panel. It
               defines NALA&apos;s persona, scope, tone, and lead qualification behavior.
               Customize for each brokerage, agent team, or market before going live.
             </p>
@@ -102,9 +104,9 @@ export default function AvatarInstructions() {
                 Northside Advanced Learning Applications, Inc.
               </p>
               <p className="mt-2 text-xs leading-6 text-white/50">
-                NALA provides the AI intelligence layer, conversation design, and lead
-                qualification logic that powers this avatar. The Trulience platform handles
-                avatar rendering, voice, and real-time interaction.
+                NALA handles the AI intelligence layer, avatar experience, voice experience,
+                and real-time interaction — delivering a seamless concierge from first
+                question to qualified lead handoff.
               </p>
               <a
                 href="#crm"

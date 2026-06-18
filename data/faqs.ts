@@ -24,7 +24,7 @@ export const faqs: FAQ[] = [
   {
     question: "Can the avatar look like the agent or CEO?",
     answer:
-      "Yes. Clients may customize the avatar to represent an agent, broker, CEO, or team spokesperson, depending on Trulience account access and custom avatar options.",
+      "Yes. Clients may customize the avatar to represent an agent, broker, CEO, or team spokesperson, depending on the selected implementation scope and custom avatar package.",
   },
   {
     question: "Can this support SMS or phone calls later?",

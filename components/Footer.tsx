@@ -31,14 +31,14 @@ export default function Footer() {
           {/* Brand column */}
           <div>
             <div>
-              <p className="text-base font-semibold tracking-wide text-white">Luminary Realty</p>
+              <p className="text-base font-semibold tracking-wide text-white">Abbie Shepherd</p>
               <p className="text-[0.56rem] font-semibold uppercase tracking-[0.28em] text-white/40">
-                Luxury Real Estate Group
+                Real Estate Group · Keller Williams Buckhead
               </p>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/52">
-              Premier luxury real estate advisory serving Buckhead, North Buckhead, Sandy Springs,
-              Vinings, Chastain Park, Brookhaven, and greater Atlanta, Georgia.
+              Serving buyers and sellers across Buckhead, Brookhaven, Sandy Springs,
+              East Cobb, Roswell, Midtown, Decatur, and greater Atlanta, Georgia.
             </p>
             {/* NALA powered-by attribution */}
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#c49a3c]/25 bg-[#c49a3c]/10 px-3 py-1.5">
@@ -48,12 +48,15 @@ export default function Footer() {
               </span>
             </div>
             <div className="mt-6 space-y-1 text-sm text-white/50">
-              <p>Atlanta, GA 30327</p>
-              <p>(310) 000 – 0000</p>
-              <p>info@luminaryrealty.com</p>
+              <p>Atlanta, GA</p>
+              <p>(404) 275-5561</p>
+              <p>
+                <a href="https://www.abbieagent.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition">
+                  abbieagent.com
+                </a>
+              </p>
             </div>
             <div className="mt-6 flex gap-3">
-              {/* Social icon placeholders */}
               {["Ig", "Li", "Fb"].map((s) => (
                 <span
                   key={s}
@@ -140,14 +143,13 @@ export default function Footer() {
       <div className="section-shell py-6">
         <div className="flex flex-col gap-3 text-xs leading-6 text-white/32 sm:flex-row sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Luminary Realty Group. All rights reserved.
+            &copy; {new Date().getFullYear()} Northside Advanced Learning Applications, Inc. All rights reserved.
           </p>
           <p className="max-w-2xl sm:text-right">
-            <strong className="font-semibold text-white/42">Proof-of-concept demo only.</strong>{" "}
-            Luminary Realty Group is a fictional brokerage created solely to demonstrate
-            NALA AI concierge technology and AI-powered CRM lead routing for real estate.
-            No real transactions, listings, agents, or services are offered.
-            All property details and pricing are fictional demo data only.
+            <strong className="font-semibold text-white/42">NALA technology demonstration.</strong>{" "}
+            This site uses public listing data from abbieagent.com (Abbie Shepherd Real Estate Group / Keller Williams Buckhead)
+            to demonstrate NALA AI concierge capabilities. NALA is not affiliated with Keller Williams, any MLS, or this brokerage.
+            All financial estimates are for demonstration purposes only and must be verified with the listing agent.
           </p>
         </div>
       </div>

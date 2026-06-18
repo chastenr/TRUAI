@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { listings } from "@/data/listings";
 import AskNalaButton from "./AskNalaButton";
 
@@ -9,20 +8,21 @@ export default function FeaturedListings() {
         {/* Header */}
         <div className="flex flex-col gap-5 border-b border-neutral-200 pb-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Atlanta Luxury Demo Listings</p>
+            <p className="eyebrow">Abbie Shepherd Real Estate Group</p>
             <h2 className="display-serif mt-3 text-4xl text-neutral-950 sm:text-5xl">
-              5 Properties.<br className="hidden sm:block" /> Test the AI Concierge.
+              Current Listings.<br className="hidden sm:block" /> Powered by NALA.
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-sm leading-7 text-neutral-500">
-              These demo listings give NALA realistic property details to answer questions,
-              qualify buyers, request documents, and prepare a CRM-ready lead handoff.
+              Active listings from Abbie Shepherd Real Estate Group. Ask NALA about any
+              property — pricing, neighborhoods, showing requests, and buyer qualification,
+              all handled 24/7.
             </p>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5">
-              <span className="size-1.5 rounded-full bg-amber-400" />
-              <span className="text-[0.65rem] font-semibold text-amber-700">
-                Demo listings only — all details are fictional
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#c49a3c]/30 bg-[#c49a3c]/10 px-3 py-1.5">
+              <span className="size-1.5 rounded-full bg-[#c49a3c]" />
+              <span className="text-[0.65rem] font-semibold text-[#9a7620]">
+                Data from abbieagent.com · Verify details with listing agent
               </span>
             </div>
           </div>
@@ -35,15 +35,8 @@ export default function FeaturedListings() {
               key={listing.id}
               className="soft-lift card-shadow flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
             >
-              {/* Photo */}
-              <div className="relative h-[230px] overflow-hidden">
-                <Image
-                  src={listing.imageUrl}
-                  alt={`${listing.address} — ${listing.neighborhood}`}
-                  fill
-                  className="object-cover object-center transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+              {/* Gradient placeholder — no listing photos used */}
+              <div className={`${listing.imageClass} relative h-[230px] overflow-hidden`}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
 
                 <div className="absolute left-4 top-4">
@@ -68,7 +61,7 @@ export default function FeaturedListings() {
                 <div className="mt-3 flex items-center gap-3 text-[0.75rem] font-semibold text-neutral-600">
                   <span>{listing.beds} Beds</span>
                   <span className="text-neutral-300">·</span>
-                  <span>{listing.baths} Baths</span>
+                  <span>{listing.baths}{listing.halfBaths > 0 ? `.${listing.halfBaths > 0 ? "5" : ""}` : ""} Baths</span>
                   <span className="text-neutral-300">·</span>
                   <span>{listing.squareFeet} Sq Ft</span>
                 </div>
@@ -78,7 +71,7 @@ export default function FeaturedListings() {
                 </p>
 
                 <p className="mt-2 text-[0.7rem] text-neutral-400">
-                  {listing.pricePerSqFt}/sq ft · Built {listing.yearBuilt}
+                  {listing.pricePerSqFt}/sq ft
                 </p>
 
                 {/* CTAs */}
@@ -87,20 +80,22 @@ export default function FeaturedListings() {
                     address={listing.address}
                     className="block w-full rounded-full bg-[#c49a3c] px-4 py-2.5 text-center text-[0.78rem] font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
                   >
-                    Ask AI About This Property
+                    Ask NALA About This Property
                   </AskNalaButton>
                   <div className="mt-2 grid grid-cols-2 gap-2">
                     <a
                       href="/#crm"
                       className="rounded-full border border-neutral-300 px-3 py-2 text-center text-[0.72rem] font-semibold text-neutral-700 transition hover:border-neutral-950"
                     >
-                      Private Showing
+                      Request Showing
                     </a>
                     <a
-                      href={`/listings/${listing.slug}`}
+                      href={listing.listingUrl ?? "https://www.abbieagent.com/listings/"}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="rounded-full border border-neutral-300 px-3 py-2 text-center text-[0.72rem] font-semibold text-neutral-700 transition hover:border-neutral-950"
                     >
-                      View Details →
+                      View on Site →
                     </a>
                   </div>
                 </div>
@@ -109,11 +104,12 @@ export default function FeaturedListings() {
           ))}
         </div>
 
-        <p className="mt-8 rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 text-center text-xs leading-6 text-neutral-500">
-          <strong className="font-semibold text-neutral-700">Demo listings only.</strong>{" "}
-          Property details, pricing, availability, taxes, HOA, square footage, and showing requirements
-          are fictional demo data and must be verified by the brokerage or listing advisor.
-          Photos sourced from Unsplash — for demonstration purposes only.
+        <p className="mt-8 rounded-lg border border-neutral-200 bg-white px-4 py-3 text-center text-xs leading-6 text-neutral-500">
+          <strong className="font-semibold text-neutral-700">Public listing data only.</strong>{" "}
+          Address, price, bed/bath count, and square footage sourced from{" "}
+          <a href="https://www.abbieagent.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-900">abbieagent.com</a>.{" "}
+          All details must be verified with Abbie Shepherd Real Estate Group / Keller Williams Buckhead.
+          This page is a NALA technology demonstration.
         </p>
       </div>
     </section>

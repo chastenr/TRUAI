@@ -13,11 +13,11 @@ export type Listing = {
   baths: number;
   halfBaths: number;
   squareFeet: string;
-  lotSize: string;
-  yearBuilt: number;
-  garage: string;
+  lotSize?: string;
+  yearBuilt?: number;
+  garage?: string;
   imageClass: string;
-  imageUrl: string;
+  imageUrl?: string;
   summary: string;
   financials: {
     estimatedMonthly: string;
@@ -28,6 +28,7 @@ export type Listing = {
   features: string[];
   nearby: string[];
   disclosure: string;
+  listingUrl?: string;
 };
 
 export type FAQ = {

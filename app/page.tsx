@@ -18,19 +18,22 @@ import { listings } from "@/data/listings";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Luminary Realty Group",
+  name: "Abbie Shepherd Real Estate Group",
   description:
-    "Atlanta luxury real estate AI concierge demo — powered by NALA. Demonstrating 24/7 AI-assisted buyer qualification, CRM lead routing, and showing request management for Atlanta luxury properties.",
+    "Abbie Shepherd Real Estate Group — Keller Williams Buckhead. Atlanta real estate demo powered by NALA, demonstrating 24/7 AI-assisted buyer qualification, CRM lead routing, and showing request management.",
   areaServed: [
     "Buckhead",
+    "Brookhaven",
     "Sandy Springs",
-    "North Atlanta",
-    "Vinings",
+    "East Cobb",
+    "Roswell",
+    "Midtown Atlanta",
+    "Decatur",
     "Atlanta",
     "Georgia",
   ],
-  url: "https://example.com",
-  sameAs: [],
+  url: "https://www.abbieagent.com",
+  sameAs: ["https://www.abbieagent.com"],
 };
 
 const faqSchema = {
@@ -49,7 +52,7 @@ const faqSchema = {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Atlanta Luxury Demo Listings — Luminary Realty Group",
+  name: "Atlanta Listings — Abbie Shepherd Real Estate Group",
   itemListElement: listings.map((l, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -104,7 +107,7 @@ export default function Home() {
         {/* 2 · Atlanta demo listings */}
         <FeaturedListings />
 
-        {/* 3 · AI Concierge — live Trulience avatar */}
+        {/* 3 · AI Concierge — live NALA avatar */}
         <AIConcierge />
 
         {/* 4 · CRM Handoff + document upload */}

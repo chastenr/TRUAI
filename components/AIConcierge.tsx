@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NalaChat from "./NalaChat";
+import NalaSupportPanel from "./NalaSupportPanel";
 import TrulienceEmbed from "./TrulienceEmbed";
 
 export default function AIConcierge() {
@@ -50,12 +50,13 @@ export default function AIConcierge() {
             </h3>
           </div>
           <p className="max-w-sm text-sm leading-7 text-white/50">
-            NALA is the brain. Type a question below and watch the lead card fill in
-            real time — the same record your CRM would receive.
+            NALA handles every conversation live through the avatar — by voice or text.
+            Watch the CRM lead card fill in below as buyers engage, then route it straight
+            to your platform with one click.
           </p>
         </div>
 
-        {/* Main grid: avatar face + text chat brain */}
+        {/* Main grid: avatar + listing / lead panel */}
         <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr]">
           {/* Left: live avatar */}
           <div className="flex flex-col gap-4">
@@ -93,9 +94,9 @@ export default function AIConcierge() {
             </div>
           </div>
 
-          {/* Right: real text chat (the brain) */}
+          {/* Right: listing reference + live lead preview */}
           <div className="flex flex-col">
-            <NalaChat />
+            <NalaSupportPanel />
           </div>
         </div>
       </div>

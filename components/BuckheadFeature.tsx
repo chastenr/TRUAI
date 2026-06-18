@@ -1,4 +1,4 @@
-import { buckheadListing as p } from "@/data/listings";
+import { featuredListing as p } from "@/data/listings";
 
 export default function BuckheadFeature() {
   return (
@@ -7,18 +7,19 @@ export default function BuckheadFeature() {
         {/* Section header */}
         <div className="flex flex-col gap-4 border-b border-white/10 pb-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Featured Demo Listing · Atlanta, GA</p>
+            <p className="eyebrow">Featured Listing · {p.neighborhood}</p>
             <h2 className="display-serif mt-3 text-4xl text-white sm:text-5xl">
-              The Buckhead<br className="hidden sm:block" /> Ridge Estate
+              {p.address}<br className="hidden sm:block" />
+              <span className="text-[#e0be6e]">{p.city}, {p.state}</span>
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-sm leading-7 text-white/50">
-              A fully detailed dummy listing created to demonstrate NALA&apos;s ability to answer
-              deep property questions, qualify buyers, and route serious inquiries to an advisor.
+              Real listing data from Abbie Shepherd Real Estate Group, demonstrating NALA&apos;s ability
+              to answer property questions, qualify buyers, and route inquiries to an advisor.
             </p>
             <span className="mt-3 inline-block rounded-full border border-[#e0be6e]/30 bg-[#e0be6e]/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[#e0be6e]">
-              Demo Listing Only
+              Public Listing Data · abbieagent.com
             </span>
           </div>
         </div>
@@ -61,9 +62,9 @@ export default function BuckheadFeature() {
             {/* Key details */}
             <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[
-                { label: "Year Built",  value: `${p.yearBuilt}` },
-                { label: "Lot Size",    value: p.lotSize ?? "—" },
-                { label: "Garage",      value: p.garage ?? "—" },
+                { label: "Year Built",  value: p.yearBuilt ? `${p.yearBuilt}` : "Verify with agent" },
+                { label: "Lot Size",    value: p.lotSize ?? "Verify with agent" },
+                { label: "Garage",      value: p.garage ?? "Verify with agent" },
                 { label: "Price/Sq Ft", value: p.pricePerSqFt },
               ].map((s) => (
                 <div key={s.label} className="rounded-lg border border-white/10 bg-white/[0.05] px-4 py-3 text-center">
@@ -144,7 +145,7 @@ export default function BuckheadFeature() {
                 Request Private Showing
               </a>
               <a
-                href="/listings/buckhead-ridge-estate"
+                href={`/listings/${p.slug}`}
                 className="block rounded-full border border-white/10 px-5 py-3.5 text-center text-sm font-semibold text-white/70 transition hover:border-white/30 hover:text-white"
               >
                 View Full Listing Details →
