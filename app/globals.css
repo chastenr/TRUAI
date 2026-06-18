@@ -233,6 +233,13 @@ textarea {
 .neighborhood-gradient-5 { background: linear-gradient(155deg, #2a1000 0%, #7a3010 45%, #c05828 80%, #e87040 100%); }
 .neighborhood-gradient-6 { background: linear-gradient(155deg, #0c0820 0%, #261858 45%, #4a309e 80%, #6a50c8 100%); }
 
+/* ─── Trulience avatar embed ─────────────────────────────── */
+.trulience-wrap {
+  aspect-ratio: 9 / 16;
+  min-height: 520px;
+  max-height: 680px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 

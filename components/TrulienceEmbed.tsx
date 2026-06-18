@@ -2,12 +2,7 @@
 
 export default function TrulienceEmbed() {
   return (
-    <div className="relative h-[520px] overflow-hidden rounded-xl border border-white/10">
-      {/*
-        ── Trulience Live Avatar Embed ────────────────────────────────────
-        Avatar ID: 8657426931336757879
-        ─────────────────────────────────────────────────────────────────
-      */}
+    <div className="trulience-wrap relative w-full overflow-hidden rounded-xl border border-white/10">
       <iframe
         width="100%"
         height="100%"
