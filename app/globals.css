@@ -233,6 +233,17 @@ textarea {
 .neighborhood-gradient-5 { background: linear-gradient(155deg, #2a1000 0%, #7a3010 45%, #c05828 80%, #e87040 100%); }
 .neighborhood-gradient-6 { background: linear-gradient(155deg, #0c0820 0%, #261858 45%, #4a309e 80%, #6a50c8 100%); }
 
+/* ─── NALA floating button ───────────────────────────────── */
+.nala-fab {
+  will-change: opacity, transform;
+  animation: nala-appear 0.5s ease 1.8s both;
+}
+
+@keyframes nala-appear {
+  from { opacity: 0; transform: scale(0.7) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}
+
 /* ─── Trulience avatar embed ─────────────────────────────── */
 .trulience-wrap {
   aspect-ratio: 9 / 16;
