@@ -20,7 +20,7 @@ const localBusinessSchema = {
   "@type": "RealEstateAgent",
   name: "Luminary Realty Group",
   description:
-    "Luxury real estate AI concierge demo — powered by NALA and Trulience. Demonstrating 24/7 avatar-assisted buyer qualification, CRM lead routing, and showing request management for Atlanta luxury properties.",
+    "Atlanta luxury real estate AI concierge demo — powered by NALA. Demonstrating 24/7 AI-assisted buyer qualification, CRM lead routing, and showing request management for Atlanta luxury properties.",
   areaServed: [
     "Buckhead",
     "Sandy Springs",

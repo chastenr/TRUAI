@@ -10,7 +10,7 @@ export default function TrulienceEmbed() {
         frameBorder="0"
         allow="camera; microphone; fullscreen; accelerometer; magnetometer; xr-spatial-tracking; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        title="NALA — Luminary Realty AI Concierge powered by Trulience"
+        title="NALA — Luminary Realty AI Concierge"
         className="absolute inset-0 h-full w-full"
       />
     </div>

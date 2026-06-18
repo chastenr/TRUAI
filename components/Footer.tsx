@@ -18,7 +18,7 @@ const services = [
 const demoLinks = [
   { label: "AI Concierge Demo", href: "#concierge" },
   { label: "CRM Lead Preview", href: "#crm" },
-  { label: "Trulience Integration", href: "#concierge" },
+  { label: "NALA Chat Demo", href: "#concierge" },
   { label: "Buyer Journey Flow", href: "#concierge" },
 ];
 
@@ -37,8 +37,8 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/52">
-              Premier luxury real estate advisory serving Bel Air, Malibu, Beverly Hills,
-              Pacific Palisades, Buckhead Atlanta, and greater Los Angeles.
+              Premier luxury real estate advisory serving Buckhead, North Buckhead, Sandy Springs,
+              Vinings, Chastain Park, Brookhaven, and greater Atlanta, Georgia.
             </p>
             {/* NALA powered-by attribution */}
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#c49a3c]/25 bg-[#c49a3c]/10 px-3 py-1.5">
@@ -48,7 +48,7 @@ export default function Footer() {
               </span>
             </div>
             <div className="mt-6 space-y-1 text-sm text-white/50">
-              <p>Los Angeles, CA 90024</p>
+              <p>Atlanta, GA 30327</p>
               <p>(310) 000 – 0000</p>
               <p>info@luminaryrealty.com</p>
             </div>
@@ -123,10 +123,10 @@ export default function Footer() {
             </ul>
             <div className="mt-6 rounded-lg border border-[#c49a3c]/25 bg-[#c49a3c]/10 p-4">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#e0be6e]">
-                Powered by Trulience
+                Powered by NALA
               </p>
               <p className="mt-2 text-xs leading-5 text-white/45">
-                AI avatar technology for real estate lead qualification and CRM routing.
+                AI concierge for real estate lead qualification, 24/7 answering, and CRM routing.
               </p>
             </div>
           </div>
@@ -145,10 +145,9 @@ export default function Footer() {
           <p className="max-w-2xl sm:text-right">
             <strong className="font-semibold text-white/42">Proof-of-concept demo only.</strong>{" "}
             Luminary Realty Group is a fictional brokerage created solely to demonstrate
-            Trulience avatar technology and AI-powered CRM lead routing for real estate.
-            No real transactions, listings, agents, or services are offered. Trulience
-            integrations require a valid account, approved API credentials, and production
-            configuration before going live.
+            NALA AI concierge technology and AI-powered CRM lead routing for real estate.
+            No real transactions, listings, agents, or services are offered.
+            All property details and pricing are fictional demo data only.
           </p>
         </div>
       </div>

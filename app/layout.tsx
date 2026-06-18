@@ -21,22 +21,22 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Luxury Real Estate Los Angeles | Luminary Realty Group",
+  title: "Atlanta Luxury Real Estate | Luminary Realty Group",
   description:
-    "Premier luxury real estate brokerage serving Bel Air, Malibu, Beverly Hills, Pacific Palisades, and greater Los Angeles. Browse exclusive estates, connect with top advisors, and get instant answers through our AI concierge.",
+    "Premier luxury real estate brokerage serving Buckhead, North Buckhead, Sandy Springs, Vinings, Chastain Park, and greater Atlanta. Browse exclusive estates, connect with top advisors, and get instant answers through NALA — our 24/7 AI concierge.",
   keywords: [
-    "luxury real estate Los Angeles",
-    "Bel Air homes for sale",
-    "Malibu beach estates",
-    "Beverly Hills real estate",
-    "Pacific Palisades homes",
-    "AI real estate concierge",
-    "Trulience avatar real estate",
+    "luxury real estate Atlanta",
+    "Buckhead homes for sale",
+    "North Buckhead luxury estates",
+    "Sandy Springs real estate",
+    "Vinings homes for sale",
+    "Atlanta AI real estate concierge",
+    "NALA real estate AI",
   ],
   openGraph: {
-    title: "Luxury Real Estate Los Angeles | Luminary Realty Group",
+    title: "Atlanta Luxury Real Estate | Luminary Realty Group",
     description:
-      "Browse curated estate listings, ask questions through our AI concierge, and connect with a luxury advisor — all on one premium brokerage platform.",
+      "Browse curated estate listings, ask questions through NALA our AI concierge, and connect with a luxury Atlanta advisor — all on one premium brokerage platform.",
     type: "website",
     siteName: "Luminary Realty Group",
   },

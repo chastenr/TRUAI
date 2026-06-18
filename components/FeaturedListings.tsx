@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { listings } from "@/data/listings";
+import AskNalaButton from "./AskNalaButton";
 
 export default function FeaturedListings() {
   return (
@@ -43,17 +44,14 @@ export default function FeaturedListings() {
                   className="object-cover object-center transition-transform duration-500 hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
 
-                {/* Status badge */}
                 <div className="absolute left-4 top-4">
                   <span className="rounded-full bg-[#c49a3c] px-2.5 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wide text-neutral-950 shadow-lg">
                     {listing.status}
                   </span>
                 </div>
 
-                {/* Price + neighborhood overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-xl font-semibold text-white drop-shadow">{listing.price}</p>
                   <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-white/70">
@@ -67,7 +65,6 @@ export default function FeaturedListings() {
                 <p className="text-[0.82rem] font-semibold text-neutral-950">{listing.address}</p>
                 <p className="mt-0.5 text-[0.72rem] text-neutral-500">{listing.city}, {listing.state} {listing.zip}</p>
 
-                {/* Specs */}
                 <div className="mt-3 flex items-center gap-3 text-[0.75rem] font-semibold text-neutral-600">
                   <span>{listing.beds} Beds</span>
                   <span className="text-neutral-300">·</span>
@@ -76,24 +73,22 @@ export default function FeaturedListings() {
                   <span>{listing.squareFeet} Sq Ft</span>
                 </div>
 
-                {/* Summary */}
                 <p className="mt-3 line-clamp-2 flex-1 text-[0.8rem] leading-6 text-neutral-500">
                   {listing.summary}
                 </p>
 
-                {/* Price per sq ft */}
                 <p className="mt-2 text-[0.7rem] text-neutral-400">
                   {listing.pricePerSqFt}/sq ft · Built {listing.yearBuilt}
                 </p>
 
                 {/* CTAs */}
                 <div className="mt-4 border-t border-neutral-100 pt-4">
-                  <a
-                    href="/#concierge"
+                  <AskNalaButton
+                    address={listing.address}
                     className="block w-full rounded-full bg-[#c49a3c] px-4 py-2.5 text-center text-[0.78rem] font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
                   >
                     Ask AI About This Property
-                  </a>
+                  </AskNalaButton>
                   <div className="mt-2 grid grid-cols-2 gap-2">
                     <a
                       href="/#crm"
@@ -114,7 +109,6 @@ export default function FeaturedListings() {
           ))}
         </div>
 
-        {/* Disclaimer */}
         <p className="mt-8 rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 text-center text-xs leading-6 text-neutral-500">
           <strong className="font-semibold text-neutral-700">Demo listings only.</strong>{" "}
           Property details, pricing, availability, taxes, HOA, square footage, and showing requirements

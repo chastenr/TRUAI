@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { listings } from "@/data/listings";
 import DocUpload from "@/components/DocUpload";
+import AskNalaButton from "@/components/AskNalaButton";
 
 export function generateStaticParams() {
   return listings.map((l) => ({ slug: l.slug }));
@@ -207,12 +208,12 @@ export default async function ListingDetailPage({
 
             {/* CTAs */}
             <div className="flex flex-col gap-3">
-              <a
-                href="/#concierge"
-                className="block rounded-full bg-[#c49a3c] px-5 py-3.5 text-center text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
+              <AskNalaButton
+                address={p.address}
+                className="block w-full rounded-full bg-[#c49a3c] px-5 py-3.5 text-center text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
               >
                 Ask AI About This Property
-              </a>
+              </AskNalaButton>
               <a
                 href="/#crm"
                 className="block rounded-full bg-neutral-950 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#9a7620]"
@@ -245,12 +246,12 @@ export default async function ListingDetailPage({
                 NALA can answer questions about pricing, features, neighborhood, showing
                 availability, and financial estimates instantly, any time of day.
               </p>
-              <a
-                href="/#concierge"
-                className="mt-4 block rounded-full bg-[#c49a3c] px-5 py-2.5 text-center text-xs font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
+              <AskNalaButton
+                address={p.address}
+                className="mt-4 block w-full rounded-full bg-[#c49a3c] px-5 py-2.5 text-center text-xs font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
               >
                 Chat with NALA Now
-              </a>
+              </AskNalaButton>
             </div>
           </aside>
         </div>

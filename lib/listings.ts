@@ -1,0 +1,261 @@
+// Lean NALA context — single source of truth for the AI brain.
+// Separate from data/listings.ts which carries full UI display fields.
+
+export type NalaListing = {
+  slug: string;
+  address: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  zip: string;
+  status: string;
+  price: string;
+  pricePerSqFt: string;
+  beds: number;
+  baths: number;
+  halfBaths: number;
+  sqFt: string;
+  lotSize: string;
+  yearBuilt: number;
+  garage: string;
+  estMonthly: string;
+  estTax: string;
+  hoa: string;
+  showingRequirement: string;
+  summary: string;
+  features: string[];
+  nearby: string[];
+};
+
+export const NALA_LISTINGS: NalaListing[] = [
+  {
+    slug: "buckhead-ridge-estate",
+    address: "4188 Ridge Hollow Drive NE",
+    neighborhood: "Buckhead / North Atlanta",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30327",
+    status: "Active Demo",
+    price: "$4,875,000",
+    pricePerSqFt: "$495/sq ft",
+    beds: 6,
+    baths: 7,
+    halfBaths: 2,
+    sqFt: "9,850",
+    lotSize: "1.42 acres",
+    yearBuilt: 2021,
+    garage: "4-car",
+    estMonthly: "$31,900/month",
+    estTax: "$42,500/year",
+    hoa: "None",
+    showingRequirement: "Proof of funds or prequalification recommended",
+    summary:
+      "A gated contemporary luxury estate on a private tree-lined Buckhead lot with expansive entertaining spaces, floor-to-ceiling windows, resort-style outdoor living, saltwater pool, chef's kitchen, wellness room, media lounge, wine storage, smart home features, and a guest suite.",
+    features: [
+      "Gated driveway with motor court",
+      "Saltwater pool and spa",
+      "Outdoor kitchen and covered terrace",
+      "Floor-to-ceiling glass walls",
+      "Chef's kitchen with oversized island",
+      "Temperature-controlled wine storage",
+      "Home theater / media lounge",
+      "Fitness and wellness room",
+      "Primary suite with spa bath and private terrace",
+      "Smart lighting and security system",
+      "Elevator-ready layout",
+      "Detached guest suite",
+    ],
+    nearby: [
+      "Buckhead Village — 2 min",
+      "Chastain Park — 5 min",
+      "Atlanta History Center — 8 min",
+      "Pace Academy / Westminster schools nearby",
+      "Midtown Atlanta — 12 min",
+      "Sandy Springs — 10 min",
+    ],
+  },
+  {
+    slug: "wieuca-modern-manor",
+    address: "3825 Wieuca Terrace NE",
+    neighborhood: "North Buckhead",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30342",
+    status: "Active Demo",
+    price: "$4,390,000",
+    pricePerSqFt: "$681/sq ft",
+    beds: 5,
+    baths: 5,
+    halfBaths: 2,
+    sqFt: "6,450",
+    lotSize: "0.58 acres",
+    yearBuilt: 2024,
+    garage: "3-car",
+    estMonthly: "$28,600/month",
+    estTax: "$36,800/year",
+    hoa: "None",
+    showingRequirement: "Proof of funds or prequalification recommended",
+    summary:
+      "A new-construction luxury residence with modern architecture, open living spaces, designer chef's kitchen with scullery, oversized primary suite, covered outdoor lounge, private backyard with pool-ready site plan, and premium smart home throughout.",
+    features: [
+      "New construction (2024)",
+      "Open-concept main level",
+      "Designer chef's kitchen with waterfall island",
+      "Scullery / prep kitchen",
+      "Main-level guest suite",
+      "Covered outdoor lounge with fireplace",
+      "Pool-ready backyard site plan",
+      "Finished terrace level",
+      "Spa-style primary bath",
+      "Large walk-in primary closet",
+      "Smart lighting and security system",
+      "3-car attached garage",
+    ],
+    nearby: [
+      "Phipps Plaza — 4 min",
+      "Lenox Square — 5 min",
+      "Chastain Park — 7 min",
+      "Buckhead restaurants and retail — walkable",
+      "GA-400 access — 5 min",
+      "Midtown Atlanta — 15 min",
+    ],
+  },
+  {
+    slug: "pinecrest-grand-residence",
+    address: "345 Pinecrest Road NE",
+    neighborhood: "Buckhead / Chastain Park Area",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30342",
+    status: "Active Demo",
+    price: "$3,975,000",
+    pricePerSqFt: "$537/sq ft",
+    beds: 7,
+    baths: 6,
+    halfBaths: 2,
+    sqFt: "7,396",
+    lotSize: "0.75 acres",
+    yearBuilt: 2020,
+    garage: "3-car",
+    estMonthly: "$25,900/month",
+    estTax: "$33,500/year",
+    hoa: "None",
+    showingRequirement: "Prequalification letter or proof of funds required",
+    summary:
+      "A refined luxury residence near Chastain Park with classic exterior architecture and modern finishes, generous living areas, formal dining, chef's kitchen, private office, finished terrace level, and an exceptional entertaining backyard.",
+    features: [
+      "Formal entry and grand foyer",
+      "Private home office",
+      "Chef's kitchen with breakfast room",
+      "Formal dining room",
+      "Butler's pantry",
+      "Finished terrace level with media room",
+      "Guest bedroom suite on main level",
+      "Large primary suite with sitting area",
+      "Covered rear porch with outdoor fireplace",
+      "Landscaped backyard with room for pool",
+      "3-car attached garage",
+      "Close to Chastain Park trail system",
+    ],
+    nearby: [
+      "Chastain Park — 3 min",
+      "Chastain Amphitheater — 5 min",
+      "Buckhead dining and nightlife — 8 min",
+      "Top private schools nearby",
+      "Sandy Springs — 10 min",
+      "Midtown Atlanta — 15 min",
+    ],
+  },
+  {
+    slug: "lake-forrest-private-estate",
+    address: "4970 Lake Forrest Drive",
+    neighborhood: "Sandy Springs / North Atlanta",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30342",
+    status: "Active Demo",
+    price: "$2,990,000",
+    pricePerSqFt: "$377/sq ft",
+    beds: 6,
+    baths: 5,
+    halfBaths: 2,
+    sqFt: "7,927",
+    lotSize: "0.62 acres",
+    yearBuilt: 2018,
+    garage: "3-car",
+    estMonthly: "$19,800/month",
+    estTax: "$27,500/year",
+    hoa: "None",
+    showingRequirement: "Prequalification letter or proof of funds required",
+    summary:
+      "A private North Atlanta estate designed for space and convenience — featuring a dramatic two-story foyer, oversized family room, gourmet kitchen, finished terrace-level entertainment space, home gym, guest suite, and private outdoor living.",
+    features: [
+      "Private gated feel",
+      "Dramatic two-story foyer",
+      "Oversized family room",
+      "Gourmet kitchen with large island",
+      "Walk-in pantry",
+      "Main-level guest suite",
+      "Finished terrace level",
+      "Home gym / fitness room",
+      "Media and game room",
+      "Wine display",
+      "Covered patio with outdoor living",
+      "Smart home controls",
+    ],
+    nearby: [
+      "Sandy Springs City Center — 5 min",
+      "Chastain Park — 8 min",
+      "Buckhead shopping / restaurants — 10 min",
+      "GA-400 access — 3 min",
+      "Public and private school options nearby",
+      "Midtown Atlanta — 20 min",
+    ],
+  },
+  {
+    slug: "brookview-contemporary-estate",
+    address: "4432 Brookview Drive SE",
+    neighborhood: "Vinings / Atlanta",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30339",
+    status: "Active Demo",
+    price: "$3,000,000",
+    pricePerSqFt: "$600/sq ft",
+    beds: 5,
+    baths: 5,
+    halfBaths: 1,
+    sqFt: "5,000",
+    lotSize: "0.44 acres",
+    yearBuilt: 2025,
+    garage: "3-car",
+    estMonthly: "$19,500/month",
+    estTax: "$25,800/year",
+    hoa: "To be verified",
+    showingRequirement: "Prequalification letter or proof of funds required",
+    summary:
+      "A modern new-construction home with clean lines, bright interiors, and strong indoor-outdoor living. Features high ceilings, open living and dining, luxury kitchen, private office, covered terrace, guest suite, and flexible lower-level space.",
+    features: [
+      "New construction (2025)",
+      "Contemporary architecture with clean lines",
+      "High ceilings throughout",
+      "Open living / dining great room",
+      "Chef's kitchen with large island",
+      "Main-level private office",
+      "Main-level guest suite",
+      "Covered terrace / outdoor entertaining area",
+      "Luxury primary bath",
+      "Custom closet system",
+      "Flexible lower level",
+      "Smart home prewiring",
+    ],
+    nearby: [
+      "Vinings Village — 3 min",
+      "The Battery Atlanta / Truist Park — 5 min",
+      "Cumberland business district — 5 min",
+      "Buckhead — 15 min",
+      "Midtown Atlanta — 18 min",
+      "I-285 access — 3 min",
+    ],
+  },
+];

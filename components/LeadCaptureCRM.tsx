@@ -184,7 +184,7 @@ export default function LeadCaptureCRM() {
                     value={lead.neighborhood}
                     onChange={(e) => update("neighborhood", e.target.value)}
                     className="rounded-lg border border-neutral-200 px-4 py-3 text-sm font-normal text-neutral-950 outline-none transition focus:border-[#9a7620] focus:ring-1 focus:ring-[#9a7620]/20"
-                    placeholder="Malibu, Bel Air, Palisades"
+                    placeholder="Buckhead, Sandy Springs, Vinings"
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm font-semibold text-neutral-800 sm:col-span-2">
