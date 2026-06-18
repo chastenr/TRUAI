@@ -1,6 +1,6 @@
 import AIConcierge from "@/components/AIConcierge";
 import AvatarInstructions from "@/components/AvatarInstructions";
-import BuckheadFeature from "@/components/BuckheadFeature";
+import CRMHandoff from "@/components/CRMHandoff";
 import FAQ from "@/components/FAQ";
 import FeaturedListings from "@/components/FeaturedListings";
 import Footer from "@/components/Footer";
@@ -20,15 +20,14 @@ const localBusinessSchema = {
   "@type": "RealEstateAgent",
   name: "Luminary Realty Group",
   description:
-    "Premium luxury real estate brokerage serving Bel Air, Malibu, Beverly Hills, Pacific Palisades, and greater Los Angeles, with AI concierge support for buyer questions, lead qualification, and CRM-ready routing.",
+    "Luxury real estate AI concierge demo — powered by NALA and Trulience. Demonstrating 24/7 avatar-assisted buyer qualification, CRM lead routing, and showing request management for Atlanta luxury properties.",
   areaServed: [
-    "Bel Air",
-    "Malibu",
-    "Beverly Hills",
-    "Pacific Palisades",
-    "Brentwood",
-    "West Hollywood",
-    "Los Angeles",
+    "Buckhead",
+    "Sandy Springs",
+    "North Atlanta",
+    "Vinings",
+    "Atlanta",
+    "Georgia",
   ],
   url: "https://example.com",
   sameAs: [],
@@ -50,7 +49,7 @@ const faqSchema = {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Featured Luxury Listings — Luminary Realty Group",
+  name: "Atlanta Luxury Demo Listings — Luminary Realty Group",
   itemListElement: listings.map((l, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -79,18 +78,18 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* 1 · Hero — luxury brokerage entry point */}
+        {/* 1 · Hero */}
         <Hero />
 
-        {/* Trust bar — credibility signals between hero and listings */}
+        {/* Trust bar */}
         <div className="border-b border-neutral-100 bg-white py-5">
           <div className="section-shell flex flex-wrap items-center justify-center gap-x-10 gap-y-3 sm:justify-between">
             {[
-              "Luxury Portfolio Specialists",
-              "Discreet Off-Market Access",
-              "Curated Buyer Matching",
-              "AI-Powered Lead Routing",
-              "24/7 Concierge Support",
+              "Avatar-Powered Buyer Qualification",
+              "24/7 AI Concierge",
+              "CRM-Ready Lead Handoff",
+              "Document Collection Built-In",
+              "Powered by NALA",
             ].map((item) => (
               <p
                 key={item}
@@ -102,43 +101,46 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 2 · Featured Listings — 6 Compass-style property cards */}
+        {/* 2 · Atlanta demo listings */}
         <FeaturedListings />
 
-        {/* 3 · Neighborhoods — 6 LA luxury market cards */}
-        <Neighborhoods />
-
-        {/* 3b · Featured Demo Listing — The Buckhead Ridge Estate, Atlanta */}
-        <BuckheadFeature />
-
-        {/* 4 · AI Concierge — Trulience avatar embed + conversation starters */}
+        {/* 3 · AI Concierge — live Trulience avatar */}
         <AIConcierge />
 
-        {/* 5 · Buyer Journey — steps + buyer question chips */}
+        {/* 4 · CRM Handoff + document upload */}
+        <CRMHandoff />
+
+        {/* 5 · Neighborhoods */}
+        <Neighborhoods />
+
+        {/* 6 · Buyer Journey */}
         <HowItWorks />
 
-        {/* 6 · Advisory Team — 4 agent cards with specialties */}
+        {/* 7 · Advisory Team */}
         <Team />
 
-        {/* 7 · CRM Lead Capture — form + mock CRM lead preview */}
+        {/* 8 · Lead Capture form */}
         <LeadCaptureCRM />
 
-        {/* 8 · Use Cases — 6 workflow cards with descriptions */}
+        {/* 9 · Use Cases */}
         <UseCases />
 
-        {/* 8b · Avatar Instructions — NALA system prompt + capability tiles */}
+        {/* 10 · NALA Avatar Instructions */}
         <AvatarInstructions />
 
-        {/* 9 · FAQ — SEO-friendly accordion */}
+        {/* 11 · FAQ */}
         <FAQ />
 
-        {/* 10 · Final CTA band */}
+        {/* 12 · Final CTA */}
         <section data-reveal className="bg-white py-16 sm:py-20">
-          <div className="section-shell rounded-lg bg-neutral-950 px-8 py-14 text-white sm:px-12">
+          <div className="section-shell rounded-2xl bg-gradient-to-br from-neutral-950 via-[#1a1208] to-neutral-950 px-8 py-14 text-white sm:px-12">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
               <div className="max-w-xl">
-                <p className="eyebrow">Ready to Get Started?</p>
-                <h2 className="display-serif mt-3 text-3xl text-white sm:text-4xl">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#c49a3c]/30 bg-[#c49a3c]/10 px-3 py-1.5">
+                  <span className="flex size-4 items-center justify-center rounded-full bg-[#c49a3c] text-[0.48rem] font-bold text-neutral-950">N</span>
+                  <span className="text-[0.62rem] font-semibold text-[#e0be6e]">Powered by NALA</span>
+                </div>
+                <h2 className="display-serif text-3xl text-white sm:text-4xl">
                   Turn Listing Interest Into Qualified Conversations
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-white/60">
@@ -148,16 +150,16 @@ export default function Home() {
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col">
                 <a
-                  href="#crm"
-                  className="rounded-full bg-[#b9985a] px-7 py-3 text-center text-sm font-semibold text-neutral-950 transition hover:bg-white"
+                  href="#concierge"
+                  className="rounded-full bg-[#c49a3c] px-7 py-3 text-center text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
                 >
-                  Request a Demo
+                  Try the Avatar Now
                 </a>
                 <a
-                  href="#concierge"
+                  href="#crm-handoff"
                   className="rounded-full border border-white/20 px-7 py-3 text-center text-sm font-semibold text-white transition hover:border-white"
                 >
-                  Ask the AI Concierge
+                  See CRM Handoff Demo
                 </a>
               </div>
             </div>

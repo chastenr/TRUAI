@@ -1,20 +1,33 @@
 export type Listing = {
   id: string;
+  slug: string;
+  status: string;
   price: string;
+  pricePerSqFt: string;
   address: string;
   neighborhood: string;
-  city?: string;
-  state?: string;
+  city: string;
+  state: string;
+  zip: string;
   beds: number;
   baths: number;
-  halfBaths?: number;
+  halfBaths: number;
   squareFeet: string;
-  lotSize?: string;
-  yearBuilt?: number;
+  lotSize: string;
+  yearBuilt: number;
+  garage: string;
   imageClass: string;
+  imageUrl: string;
   summary: string;
-  status?: string;
-  detailSlug?: string;
+  financials: {
+    estimatedMonthly: string;
+    estimatedPropertyTax: string;
+    hoa: string;
+    showingRequirement: string;
+  };
+  features: string[];
+  nearby: string[];
+  disclosure: string;
 };
 
 export type FAQ = {

@@ -1,120 +1,126 @@
+import Image from "next/image";
 import { listings } from "@/data/listings";
 
 export default function FeaturedListings() {
   return (
-    <section id="listings" data-reveal className="bg-white py-16 sm:py-24">
+    <section id="listings" data-reveal className="bg-[#f7f5f0] py-16 sm:py-24">
       <div className="section-shell">
-        {/* Section header */}
-        <div className="flex flex-col gap-5 border-b border-neutral-100 pb-10 md:flex-row md:items-end md:justify-between">
+        {/* Header */}
+        <div className="flex flex-col gap-5 border-b border-neutral-200 pb-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Featured Properties</p>
+            <p className="eyebrow">Atlanta Luxury Demo Listings</p>
             <h2 className="display-serif mt-3 text-4xl text-neutral-950 sm:text-5xl">
-              Private Estates &amp;<br className="hidden sm:block" /> Signature Homes
+              5 Properties.<br className="hidden sm:block" /> Test the AI Concierge.
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-sm leading-7 text-neutral-500">
-              Each listing connects the browsing moment to an instant AI-assisted
-              conversation — buyers get answers before they leave the page.
+              These demo listings give NALA realistic property details to answer questions,
+              qualify buyers, request documents, and prepare a CRM-ready lead handoff.
             </p>
-            <a
-              href="#listings"
-              className="mt-4 inline-block text-sm font-semibold text-neutral-950 underline underline-offset-4 transition hover:text-[#9a7620]"
-            >
-              View all listings &rarr;
-            </a>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5">
+              <span className="size-1.5 rounded-full bg-amber-400" />
+              <span className="text-[0.65rem] font-semibold text-amber-700">
+                Demo listings only — all details are fictional
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Listing grid — 3 col on desktop */}
+        {/* Grid */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {listings.map((listing) => (
             <article
               key={listing.id}
-              className="soft-lift group flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white"
+              className="soft-lift card-shadow flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
             >
-              {/* Property image placeholder */}
-              <div
-                className={`${listing.imageClass} relative flex h-[230px] flex-col justify-between p-4`}
-                role="img"
-                aria-label={`${listing.address} luxury property`}
-              >
+              {/* Photo */}
+              <div className="relative h-[230px] overflow-hidden">
+                <Image
+                  src={listing.imageUrl}
+                  alt={`${listing.address} — ${listing.neighborhood}`}
+                  fill
+                  className="object-cover object-center transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+
                 {/* Status badge */}
-                {listing.status && (
-                  <span className="self-start rounded-full bg-white/92 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-wider text-neutral-950">
+                <div className="absolute left-4 top-4">
+                  <span className="rounded-full bg-[#c49a3c] px-2.5 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wide text-neutral-950 shadow-lg">
                     {listing.status}
                   </span>
-                )}
-                {/* Neighborhood badge — bottom left */}
-                <div className="flex items-end justify-between">
-                  <span className="rounded-full bg-black/50 px-3 py-1 text-[0.7rem] font-semibold text-white/90 backdrop-blur-sm">
+                </div>
+
+                {/* Price + neighborhood overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-xl font-semibold text-white drop-shadow">{listing.price}</p>
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-white/70">
                     {listing.neighborhood}
-                  </span>
+                  </p>
                 </div>
               </div>
 
               {/* Card body */}
               <div className="flex flex-1 flex-col p-5">
-                {/* Price */}
-                <p className="text-2xl font-semibold tracking-tight text-neutral-950">
-                  {listing.price}
-                </p>
+                <p className="text-[0.82rem] font-semibold text-neutral-950">{listing.address}</p>
+                <p className="mt-0.5 text-[0.72rem] text-neutral-500">{listing.city}, {listing.state} {listing.zip}</p>
 
-                {/* Address */}
-                <h3 className="mt-1.5 text-[0.88rem] font-medium text-neutral-700">
-                  {listing.address}
-                </h3>
-
-                {/* Specs row */}
-                <div className="mt-3 flex items-center gap-3 text-[0.78rem] text-neutral-500">
+                {/* Specs */}
+                <div className="mt-3 flex items-center gap-3 text-[0.75rem] font-semibold text-neutral-600">
                   <span>{listing.beds} Beds</span>
-                  <span className="text-neutral-300">&middot;</span>
+                  <span className="text-neutral-300">·</span>
                   <span>{listing.baths} Baths</span>
-                  <span className="text-neutral-300">&middot;</span>
+                  <span className="text-neutral-300">·</span>
                   <span>{listing.squareFeet} Sq Ft</span>
                 </div>
 
                 {/* Summary */}
-                <p className="mt-3 flex-1 text-sm leading-6 text-neutral-600">
+                <p className="mt-3 line-clamp-2 flex-1 text-[0.8rem] leading-6 text-neutral-500">
                   {listing.summary}
                 </p>
 
-                {/* Divider */}
-                <div className="my-4 border-t border-neutral-100" />
+                {/* Price per sq ft */}
+                <p className="mt-2 text-[0.7rem] text-neutral-400">
+                  {listing.pricePerSqFt}/sq ft · Built {listing.yearBuilt}
+                </p>
 
                 {/* CTAs */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="mt-4 border-t border-neutral-100 pt-4">
                   <a
-                    href="#concierge"
-                    data-listing-id={listing.id}
-                    className="rounded-full bg-neutral-950 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-white transition hover:bg-[#9a7620]"
+                    href="/#concierge"
+                    className="block w-full rounded-full bg-[#c49a3c] px-4 py-2.5 text-center text-[0.78rem] font-semibold text-neutral-950 transition hover:bg-[#e0be6e]"
                   >
-                    Ask AI About This Home
+                    Ask AI About This Property
                   </a>
-                  <a
-                    href="#crm"
-                    className="rounded-full border border-neutral-300 px-3 py-2.5 text-center text-[0.75rem] font-semibold text-neutral-900 transition hover:border-[#9a7620] hover:text-[#9a7620]"
-                  >
-                    Private Showing
-                  </a>
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    <a
+                      href="/#crm"
+                      className="rounded-full border border-neutral-300 px-3 py-2 text-center text-[0.72rem] font-semibold text-neutral-700 transition hover:border-neutral-950"
+                    >
+                      Private Showing
+                    </a>
+                    <a
+                      href={`/listings/${listing.slug}`}
+                      className="rounded-full border border-neutral-300 px-3 py-2 text-center text-[0.72rem] font-semibold text-neutral-700 transition hover:border-neutral-950"
+                    >
+                      View Details →
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-neutral-100 pt-10 sm:flex-row sm:justify-between">
-          <p className="text-sm text-neutral-500">
-            Showing {listings.length} curated listings · New properties added weekly
-          </p>
-          <a
-            href="#concierge"
-            className="rounded-full border border-neutral-300 px-6 py-2.5 text-sm font-semibold text-neutral-900 transition hover:border-neutral-950 hover:bg-neutral-950 hover:text-white"
-          >
-            Ask AI to Find More Matches
-          </a>
-        </div>
+        {/* Disclaimer */}
+        <p className="mt-8 rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 text-center text-xs leading-6 text-neutral-500">
+          <strong className="font-semibold text-neutral-700">Demo listings only.</strong>{" "}
+          Property details, pricing, availability, taxes, HOA, square footage, and showing requirements
+          are fictional demo data and must be verified by the brokerage or listing advisor.
+          Photos sourced from Unsplash — for demonstration purposes only.
+        </p>
       </div>
     </section>
   );
