@@ -2,24 +2,36 @@
 
 import { useEffect, useState } from "react";
 
+const starters = [
+  "What homes are available in Buckhead?",
+  "Schedule a private showing",
+  "What are the monthly costs?",
+  "I'd like to speak with an advisor",
+];
+
 export default function NalaFloatButton() {
-  const [open, setOpen]       = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [open, setOpen]           = useState(false);
+  const [mounted, setMounted]     = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
-  // Avoid hydration mismatch
-  useEffect(() => setMounted(true), []);
-
-  // Prevent body scroll when panel is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    setMounted(true);
+    // Show tooltip hint after 3s to nudge first-time visitors
+    const t = setTimeout(() => setShowTooltip(true), 3000);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Hide tooltip once opened
+  const handleOpen = () => {
+    setOpen(true);
+    setShowTooltip(false);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", handler);
@@ -30,88 +42,122 @@ export default function NalaFloatButton() {
 
   return (
     <>
-      {/* ── Floating trigger button ── */}
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        aria-label="Chat with NALA AI Concierge"
-        className={`nala-fab group fixed bottom-6 right-5 z-40 flex items-center gap-3 rounded-full bg-[#c49a3c] px-4 py-3.5 shadow-[0_8px_32px_rgba(196,154,60,0.45)] transition-all duration-300 hover:bg-[#e0be6e] hover:shadow-[0_12px_40px_rgba(196,154,60,0.55)] sm:bottom-8 sm:right-8 ${
-          open ? "scale-0 opacity-0 pointer-events-none" : "scale-100 opacity-100"
-        }`}
-      >
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full animate-ping bg-[#c49a3c] opacity-20" />
+      {/* ── Floating trigger ── */}
+      <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-2 sm:bottom-8 sm:right-8">
 
-        {/* Chat icon */}
-        <span className="relative flex size-7 shrink-0 items-center justify-center">
-          <svg viewBox="0 0 24 24" fill="none" className="size-full" aria-hidden="true">
-            <path
-              d="M12 2C6.48 2 2 6.03 2 11c0 2.6 1.18 4.95 3.07 6.63L4 22l4.72-1.57A10.5 10.5 0 0 0 12 20.98c5.52 0 10-4.02 10-8.99C22 6.03 17.52 2 12 2Z"
-              fill="currentColor"
-              className="text-neutral-950"
-            />
-            <circle cx="8.5"  cy="11" r="1.1" fill="white" />
-            <circle cx="12"   cy="11" r="1.1" fill="white" />
-            <circle cx="15.5" cy="11" r="1.1" fill="white" />
-          </svg>
-        </span>
+        {/* Tooltip callout — shows automatically after 3s */}
+        <div className={`pointer-events-none flex max-w-[220px] flex-col rounded-2xl rounded-br-sm border border-white/12 bg-neutral-900 px-4 py-3 shadow-2xl transition-all duration-300 ${
+          showTooltip && !open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        }`}>
+          <p className="text-[0.72rem] font-semibold text-white">Hi! I&apos;m NALA 👋</p>
+          <p className="mt-0.5 text-[0.68rem] leading-5 text-white/55">
+            Ask me anything about our Atlanta luxury listings.
+          </p>
+          <div className="mt-1.5 flex items-center gap-1.5">
+            <span className="relative flex size-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+            </span>
+            <span className="text-[0.6rem] font-semibold text-emerald-400">Online now</span>
+          </div>
+        </div>
 
-        {/* Label — hidden on very small screens */}
-        <span className="relative hidden text-sm font-semibold text-neutral-950 sm:block">
-          Ask NALA
-        </span>
+        {/* FAB */}
+        <button
+          type="button"
+          onClick={open ? () => setOpen(false) : handleOpen}
+          aria-label={open ? "Close NALA chat" : "Chat with NALA AI Concierge"}
+          aria-expanded={open ? "true" : "false"}
+          className={`nala-fab group relative flex size-14 items-center justify-center rounded-full shadow-[0_8px_32px_rgba(196,154,60,0.45)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(196,154,60,0.6)] sm:h-14 sm:w-auto sm:rounded-full sm:px-5 sm:gap-2.5 ${
+            open
+              ? "bg-neutral-800 hover:bg-neutral-700"
+              : "bg-[#c49a3c] hover:bg-[#e0be6e]"
+          }`}
+        >
+          {/* Pulse ring — only when closed */}
+          {!open && (
+            <span className="absolute inset-0 rounded-full animate-ping bg-[#c49a3c] opacity-20" />
+          )}
 
-        {/* Online dot */}
-        <span className="relative flex size-2 shrink-0">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-          <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
-        </span>
-      </button>
+          {/* Icon: chat ↔ X */}
+          <span className="relative flex size-6 shrink-0 items-center justify-center transition-transform duration-200">
+            {open ? (
+              /* X icon */
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="size-5 text-white" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            ) : (
+              /* Chat bubble icon */
+              <svg viewBox="0 0 24 24" fill="currentColor" className="size-6 text-neutral-950" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.03 2 11c0 2.6 1.18 4.95 3.07 6.63L4 22l4.72-1.57A10.5 10.5 0 0 0 12 21c5.52 0 10-4.03 10-9C22 6.03 17.52 2 12 2Z" />
+                <circle cx="8.5"  cy="11" r="1.1" fill="white" />
+                <circle cx="12"   cy="11" r="1.1" fill="white" />
+                <circle cx="15.5" cy="11" r="1.1" fill="white" />
+              </svg>
+            )}
+          </span>
+
+          {/* Label — desktop only */}
+          <span className={`relative hidden text-sm font-semibold sm:block ${open ? "text-white" : "text-neutral-950"}`}>
+            {open ? "Close" : "Ask NALA"}
+          </span>
+
+          {/* Live dot — only when closed */}
+          {!open && (
+            <span className="relative hidden size-2 shrink-0 sm:flex">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+              <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+            </span>
+          )}
+        </button>
+      </div>
 
       {/* ── Backdrop ── */}
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+      <div
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
 
-      {/* ── Slide-in panel ── */}
-      {/*
-        Desktop: slides in from bottom-right as a 420px wide panel
-        Mobile:  slides up from bottom as a full-width sheet
-      */}
+      {/* ── Panel — always mounted so iframe preloads ── */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="NALA AI Concierge"
         className={`fixed z-50 flex flex-col overflow-hidden bg-neutral-950 shadow-2xl transition-all duration-300 ease-out
-          /* Mobile: bottom sheet */
-          bottom-0 left-0 right-0 h-[88dvh] rounded-t-2xl
-          /* Desktop: side panel */
-          sm:bottom-6 sm:right-6 sm:left-auto sm:h-[680px] sm:w-[420px] sm:rounded-2xl
-          ${open ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 sm:translate-y-8"}`}
+          bottom-0 left-0 right-0 h-[90dvh] rounded-t-2xl
+          sm:bottom-6 sm:right-6 sm:left-auto sm:h-[700px] sm:w-[420px] sm:rounded-2xl
+          ${open
+            ? "translate-y-0 opacity-100 pointer-events-auto"
+            : "translate-y-full opacity-0 pointer-events-none sm:translate-y-6"
+          }`}
       >
-        {/* Panel header */}
-        <div className="flex shrink-0 items-center gap-3 border-b border-white/10 bg-neutral-900 px-5 py-4">
-          {/* NALA avatar icon */}
-          <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#c49a3c] text-[0.56rem] font-bold text-neutral-950">
+        {/* Header */}
+        <div className="flex shrink-0 items-center gap-3 border-b border-white/10 bg-neutral-900 px-4 py-3.5">
+          <div className="relative flex size-9 shrink-0 items-center justify-center rounded-full bg-[#c49a3c] text-[0.55rem] font-bold text-neutral-950">
             NALA
+            <span className="absolute -bottom-0.5 -right-0.5 flex size-2.5 items-center justify-center rounded-full border border-neutral-900 bg-emerald-400" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <p className="text-sm font-semibold text-white">NALA AI Concierge</p>
-              <span className="relative flex size-1.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70 animate-ping" />
-                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
-              </span>
-            </div>
-            <p className="truncate text-[0.68rem] text-white/45">
-              Powered by NALA · Northside Advanced Learning Applications
+            <p className="text-sm font-semibold text-white">NALA AI Concierge</p>
+            <p className="text-[0.65rem] text-white/40">
+              Luxury Real Estate · Atlanta · 24/7
             </p>
           </div>
-          {/* Close button */}
+          {/* Call button */}
+          <a
+            href="tel:+13100000000"
+            aria-label="Call an advisor"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-white/15 px-3 text-[0.68rem] font-semibold text-white/70 transition hover:border-white/30 hover:text-white"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3.5" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.69 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+            </svg>
+            Call
+          </a>
+          {/* Close */}
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -124,7 +170,7 @@ export default function NalaFloatButton() {
           </button>
         </div>
 
-        {/* Iframe — fills remaining space */}
+        {/* Live avatar iframe — always mounted so it pre-connects */}
         <div className="relative flex-1 overflow-hidden">
           <iframe
             width="100%"
@@ -138,11 +184,22 @@ export default function NalaFloatButton() {
           />
         </div>
 
-        {/* Footer strip */}
-        <div className="shrink-0 border-t border-white/8 bg-neutral-900 px-5 py-2.5">
-          <p className="text-center text-[0.6rem] text-white/25">
-            Powered by NALA — Northside Advanced Learning Applications, Inc. · Trulience Avatar
+        {/* Quick-start chips */}
+        <div className="shrink-0 border-t border-white/8 bg-neutral-900 px-3 py-3">
+          <p className="mb-2 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white/30">
+            Quick questions
           </p>
+          <div className="flex flex-wrap gap-1.5">
+            {starters.map((s) => (
+              <button
+                key={s}
+                type="button"
+                className="rounded-full border border-white/12 bg-white/5 px-3 py-1.5 text-[0.68rem] font-medium text-white/65 transition hover:border-[#c49a3c]/50 hover:bg-[#c49a3c]/10 hover:text-white active:scale-95"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </>
