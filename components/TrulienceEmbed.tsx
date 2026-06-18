@@ -6,7 +6,7 @@ export default function TrulienceEmbed() {
       <iframe
         width="100%"
         height="100%"
-        src="https://trulience.com/avatar/8657426931336757879?hideChatInput=true&hideChatHistory=true&connect=true"
+        src="https://trulience.com/avatar/8657426931336757879?hideChatInput=false&hideChatHistory=false&connect=true"
         frameBorder="0"
         allow="camera; microphone; fullscreen; accelerometer; magnetometer; xr-spatial-tracking; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
