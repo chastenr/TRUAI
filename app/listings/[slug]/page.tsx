@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { listings } from "@/data/listings";
 import DocUpload from "@/components/DocUpload";
 import AskNalaButton from "@/components/AskNalaButton";
+import DemoLeadModal from "@/components/DemoLeadModal";
+import DemoModalButton from "@/components/DemoModalButton";
 
 export function generateStaticParams() {
   return listings.map((l) => ({ slug: l.slug }));
@@ -189,18 +191,20 @@ export default async function ListingDetailPage({
               >
                 Ask NALA About This Property
               </AskNalaButton>
-              <a
-                href="/#crm"
-                className="block rounded-full bg-neutral-950 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#9a7620]"
+              <DemoModalButton
+                mode="showing"
+                property={p.address}
+                className="block w-full rounded-full bg-neutral-950 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#9a7620]"
               >
                 Request Private Showing
-              </a>
-              <a
-                href="/#crm"
-                className="block rounded-full border border-neutral-300 px-5 py-3.5 text-center text-sm font-semibold text-neutral-800 transition hover:border-neutral-950"
+              </DemoModalButton>
+              <DemoModalButton
+                mode="lead"
+                property={p.address}
+                className="block w-full rounded-full border border-neutral-300 px-5 py-3.5 text-center text-sm font-semibold text-neutral-800 transition hover:border-neutral-950"
               >
                 Request Buyer Consultation
-              </a>
+              </DemoModalButton>
             </div>
 
             {/* Document upload */}
@@ -231,6 +235,7 @@ export default async function ListingDetailPage({
           </aside>
         </div>
       </div>
+      <DemoLeadModal />
     </main>
   );
 }

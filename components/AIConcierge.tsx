@@ -55,9 +55,9 @@ export default function AIConcierge() {
             </h3>
           </div>
           <p className="max-w-sm text-sm leading-7 text-white/50">
-            NALA handles every conversation live through the avatar — by voice or text.
-            Use NALA for the live conversation, then review the CRM-ready handoff
-            preview below for routing into your platform.
+            Trulience powers the website avatar experience. NALA uses that live
+            interface to answer buyer questions, qualify intent, and standardize the
+            path from inquiry to showing to follow-up.
           </p>
         </div>
 

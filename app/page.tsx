@@ -1,10 +1,15 @@
 import AIConcierge from "@/components/AIConcierge";
+import CRMHandoffPreview from "@/components/CRMHandoffPreview";
+import DemoFlow from "@/components/DemoFlow";
+import DemoLeadModal from "@/components/DemoLeadModal";
+import DocumentUploadDemo from "@/components/DocumentUploadDemo";
 import FAQ from "@/components/FAQ";
 import FeaturedListings from "@/components/FeaturedListings";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
+import IntegrationRoadmap from "@/components/IntegrationRoadmap";
 import LeadCaptureCRM from "@/components/LeadCaptureCRM";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Team from "@/components/Team";
@@ -110,19 +115,31 @@ export default function Home() {
         {/* 4 · Inquiry form */}
         <LeadCaptureCRM />
 
-        {/* 5 · Buyer Journey */}
+        {/* 5 · Demo flow */}
+        <DemoFlow />
+
+        {/* 6 · Buyer Journey */}
         <HowItWorks />
 
-        {/* 6 · Advisory Team */}
+        {/* 7 · CRM-ready lead preview */}
+        <CRMHandoffPreview />
+
+        {/* 8 · Document upload demo */}
+        <DocumentUploadDemo />
+
+        {/* 9 · Integration roadmap */}
+        <IntegrationRoadmap />
+
+        {/* 10 · Advisory Team */}
         <Team />
 
-        {/* 7 · Use Cases */}
+        {/* 11 · Use Cases */}
         <UseCases />
 
-        {/* 8 · FAQ */}
+        {/* 12 · FAQ */}
         <FAQ />
 
-        {/* 9 · Final CTA */}
+        {/* 13 · Final CTA */}
         <section data-reveal className="bg-white py-16 sm:py-20">
           <div className="section-shell rounded-2xl bg-gradient-to-br from-neutral-950 via-[#1a1208] to-neutral-950 px-8 py-14 text-white sm:px-12">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
@@ -159,6 +176,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <DemoLeadModal />
     </>
   );
 }

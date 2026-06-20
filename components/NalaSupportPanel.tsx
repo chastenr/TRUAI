@@ -52,8 +52,9 @@ export default function NalaSupportPanel() {
           Demo Mode
         </p>
         <p className="mt-2 text-xs leading-6 text-white/50">
-          The website chat layer is disabled for now. NALA is the live
-          conversation and voice experience.
+          The website chat layer is focused on the live avatar experience for this
+          demo. Production SMS, calls, calendar, document storage, and CRM sync can
+          be connected in the next implementation phase.
         </p>
       </div>
     </div>

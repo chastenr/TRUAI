@@ -1,3 +1,5 @@
+import DemoModalButton from "./DemoModalButton";
+
 const team = [
   {
     name: "Abbie Shepherd",
@@ -90,12 +92,13 @@ export default function Team() {
               </div>
 
               {/* CTA */}
-              <a
-                href="#crm"
+              <DemoModalButton
+                mode="lead"
+                message={`I would like to speak with ${member.name} about ${member.role.toLowerCase()}.`}
                 className="mt-5 block rounded-full border border-neutral-300 py-2 text-center text-[0.75rem] font-semibold text-neutral-800 transition hover:border-neutral-950 hover:bg-neutral-950 hover:text-white"
               >
                 Request Consultation
-              </a>
+              </DemoModalButton>
             </article>
           ))}
         </div>

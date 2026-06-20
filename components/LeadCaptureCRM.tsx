@@ -23,7 +23,8 @@ export default function LeadCaptureCRM() {
             </h2>
           </div>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-500">
-            Share a few details and an advisor will follow up with the right next step.
+            Share a few details or use the demo buttons throughout the site to see
+            how NALA captures a qualified inquiry for advisor follow-up.
           </p>
         </div>
 

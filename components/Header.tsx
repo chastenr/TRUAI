@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { openLeadDemo } from "./DemoLeadModal";
 
 const navItems = [
   { href: "#listings",      label: "Buy" },
@@ -66,6 +67,10 @@ export default function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#crm"
+            onClick={(event) => {
+              event.preventDefault();
+              openLeadDemo({ mode: "showing" });
+            }}
             className={`rounded-full px-5 py-2 text-[0.78rem] font-semibold transition-all ${
               scrolled
                 ? "border border-neutral-300 text-neutral-800 hover:border-neutral-900"
@@ -122,7 +127,11 @@ export default function Header() {
             <a
               href="#crm"
               className="rounded-full border border-neutral-300 px-5 py-3 text-center text-sm font-semibold text-neutral-800 transition hover:border-neutral-950"
-              onClick={() => setMobileOpen(false)}
+              onClick={(event) => {
+                event.preventDefault();
+                openLeadDemo({ mode: "showing" });
+                setMobileOpen(false);
+              }}
             >
               Schedule a Showing
             </a>

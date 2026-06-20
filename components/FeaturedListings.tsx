@@ -1,5 +1,6 @@
 import { listings } from "@/data/listings";
 import AskNalaButton from "./AskNalaButton";
+import DemoModalButton from "./DemoModalButton";
 
 export default function FeaturedListings() {
   return (
@@ -96,12 +97,13 @@ export default function FeaturedListings() {
                     Ask NALA About This Property
                   </AskNalaButton>
                   <div className="mt-2 grid grid-cols-2 gap-2">
-                    <a
-                      href="/#crm"
+                    <DemoModalButton
+                      mode="showing"
+                      property={listing.address}
                       className="rounded-full border border-neutral-300 px-3 py-2 text-center text-[0.72rem] font-semibold text-neutral-700 transition hover:border-neutral-950"
                     >
                       Request Showing
-                    </a>
+                    </DemoModalButton>
                     <a
                       href={listing.listingUrl ?? "https://www.abbieagent.com/listings/"}
                       target="_blank"
