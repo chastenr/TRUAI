@@ -22,12 +22,12 @@ const useCases = [
   {
     icon: "❺",
     title: "After-Hours Lead Capture",
-    desc: "The concierge captures serious inquiries at midnight just as well as at noon — fully qualified and CRM-ready for morning follow-up.",
+    desc: "The concierge captures serious inquiries at midnight just as well as at noon, so fewer motivated buyers slip away.",
   },
   {
     icon: "❻",
-    title: "CRM Routing & Handoff",
-    desc: "Every lead is tagged with intent, budget, timeline, and neighborhood and routed to the right advisor via webhook or direct CRM API.",
+    title: "Faster Advisor Follow-Up",
+    desc: "Every serious inquiry includes useful context like intent, budget, timeline, and location so the advisor can respond with confidence.",
   },
 ];
 

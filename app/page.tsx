@@ -1,5 +1,4 @@
 import AIConcierge from "@/components/AIConcierge";
-import AvatarInstructions from "@/components/AvatarInstructions";
 import FAQ from "@/components/FAQ";
 import FeaturedListings from "@/components/FeaturedListings";
 import Footer from "@/components/Footer";
@@ -120,13 +119,10 @@ export default function Home() {
         {/* 7 · Use Cases */}
         <UseCases />
 
-        {/* 8 · NALA Avatar Instructions */}
-        <AvatarInstructions />
-
-        {/* 9 · FAQ */}
+        {/* 8 · FAQ */}
         <FAQ />
 
-        {/* 10 · Final CTA */}
+        {/* 9 · Final CTA */}
         <section data-reveal className="bg-white py-16 sm:py-20">
           <div className="section-shell rounded-2xl bg-gradient-to-br from-neutral-950 via-[#1a1208] to-neutral-950 px-8 py-14 text-white sm:px-12">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
