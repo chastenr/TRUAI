@@ -13,7 +13,7 @@ export default function NalaSupportPanel() {
           <div>
             <p className="text-sm font-semibold text-white">Use the live NALA avatar</p>
             <p className="mt-1 text-xs leading-5 text-white/55">
-              Chat and voice are handled inside the Trulience avatar on the left. Use the
+              Chat and voice are handled inside the live avatar on the left. Use the
               avatar window to ask listing questions, request showing guidance, or speak
               with NALA by voice.
             </p>
@@ -52,7 +52,7 @@ export default function NalaSupportPanel() {
           Demo Mode
         </p>
         <p className="mt-2 text-xs leading-6 text-white/50">
-          The website chat layer is disabled for now. Trulience is the only live
+          The website chat layer is disabled for now. NALA is the live
           conversation and voice experience.
         </p>
       </div>

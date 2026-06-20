@@ -1,7 +1,7 @@
 import Image from "next/image";
 import AskNalaButton from "./AskNalaButton";
 import NalaSupportPanel from "./NalaSupportPanel";
-import TrulienceEmbed from "./TrulienceEmbed";
+import LiveAvatarEmbed from "./LiveAvatarEmbed";
 
 export default function AIConcierge() {
   return (
@@ -32,8 +32,8 @@ export default function AIConcierge() {
               and routes every serious inquiry to your CRM — while your team sleeps.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#crm-handoff" className="rounded-full bg-[#c49a3c] px-6 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]">
-                See Live Lead Card
+              <a href="#crm" className="rounded-full bg-[#c49a3c] px-6 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-[#e0be6e]">
+                Request Information
               </a>
               <AskNalaButton
                 address=""
@@ -56,7 +56,7 @@ export default function AIConcierge() {
           </div>
           <p className="max-w-sm text-sm leading-7 text-white/50">
             NALA handles every conversation live through the avatar — by voice or text.
-            Use Trulience for the live conversation, then review the CRM-ready handoff
+            Use NALA for the live conversation, then review the CRM-ready handoff
             preview below for routing into your platform.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function AIConcierge() {
             </div>
 
             {/* NALA voice avatar */}
-            <TrulienceEmbed />
+            <LiveAvatarEmbed />
 
             <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
               <div className="grid grid-cols-2 gap-3">
@@ -87,7 +87,7 @@ export default function AIConcierge() {
                   { icon: "◎", title: "Listing Knowledge",   desc: "Price, availability, features, neighborhood details." },
                   { icon: "◷", title: "24/7 Availability",   desc: "Captures after-hours leads when your team is offline." },
                   { icon: "◈", title: "Lead Qualification",  desc: "Collects name, budget, timeline, and intent." },
-                  { icon: "◉", title: "CRM Handoff",         desc: "Routes leads to HubSpot, FUB, or any webhook." },
+                  { icon: "◉", title: "CRM Handoff",         desc: "Routes qualified leads into the CRM." },
                 ].map((f) => (
                   <div key={f.title} className="rounded-lg border border-white/8 bg-white/[0.03] p-3">
                     <span className="text-lg text-[#e0be6e]">{f.icon}</span>

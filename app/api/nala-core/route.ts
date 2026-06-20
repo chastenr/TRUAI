@@ -5,7 +5,7 @@ export async function POST() {
     {
       ok: false,
       disabled: true,
-      message: "Website chat is disabled. Use the Trulience avatar for chat and voice.",
+      message: "Website chat is disabled. Use the live NALA avatar for chat and voice.",
     },
     { status: 410 }
   );

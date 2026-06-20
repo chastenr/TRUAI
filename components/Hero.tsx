@@ -11,7 +11,6 @@ const stats = [
 const quickLinks = [
   ["Buy",           "#listings"],
   ["Sell",          "#crm"],
-  ["Neighborhoods", "#neighborhoods"],
   ["AI Concierge",  "#concierge"],
 ] as const;
 

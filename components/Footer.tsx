@@ -1,6 +1,5 @@
 const quickLinks = [
   { label: "Featured Listings", href: "#listings" },
-  { label: "Neighborhoods", href: "#neighborhoods" },
   { label: "AI Concierge", href: "#concierge" },
   { label: "Our Team", href: "#team" },
   { label: "FAQ", href: "#faq" },
@@ -17,7 +16,7 @@ const services = [
 
 const demoLinks = [
   { label: "AI Concierge Demo", href: "#concierge" },
-  { label: "CRM Lead Preview", href: "#crm" },
+  { label: "Request Information", href: "#crm" },
   { label: "NALA Chat Demo", href: "#concierge" },
   { label: "Buyer Journey Flow", href: "#concierge" },
 ];

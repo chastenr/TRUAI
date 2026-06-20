@@ -1,6 +1,5 @@
 import AIConcierge from "@/components/AIConcierge";
 import AvatarInstructions from "@/components/AvatarInstructions";
-import CRMHandoff from "@/components/CRMHandoff";
 import FAQ from "@/components/FAQ";
 import FeaturedListings from "@/components/FeaturedListings";
 import Footer from "@/components/Footer";
@@ -8,7 +7,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import LeadCaptureCRM from "@/components/LeadCaptureCRM";
-import Neighborhoods from "@/components/Neighborhoods";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Team from "@/components/Team";
 import UseCases from "@/components/UseCases";
@@ -110,31 +108,25 @@ export default function Home() {
         {/* 3 · AI Concierge — live NALA avatar */}
         <AIConcierge />
 
-        {/* 4 · CRM Handoff + document upload */}
-        <CRMHandoff />
-
-        {/* 5 · Neighborhoods */}
-        <Neighborhoods />
-
-        {/* 6 · Buyer Journey */}
-        <HowItWorks />
-
-        {/* 7 · Advisory Team */}
-        <Team />
-
-        {/* 8 · Lead Capture form */}
+        {/* 4 · Inquiry form */}
         <LeadCaptureCRM />
 
-        {/* 9 · Use Cases */}
+        {/* 5 · Buyer Journey */}
+        <HowItWorks />
+
+        {/* 6 · Advisory Team */}
+        <Team />
+
+        {/* 7 · Use Cases */}
         <UseCases />
 
-        {/* 10 · NALA Avatar Instructions */}
+        {/* 8 · NALA Avatar Instructions */}
         <AvatarInstructions />
 
-        {/* 11 · FAQ */}
+        {/* 9 · FAQ */}
         <FAQ />
 
-        {/* 12 · Final CTA */}
+        {/* 10 · Final CTA */}
         <section data-reveal className="bg-white py-16 sm:py-20">
           <div className="section-shell rounded-2xl bg-gradient-to-br from-neutral-950 via-[#1a1208] to-neutral-950 px-8 py-14 text-white sm:px-12">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
@@ -159,10 +151,10 @@ export default function Home() {
                   Try the Avatar Now
                 </a>
                 <a
-                  href="#crm-handoff"
+                  href="#crm"
                   className="rounded-full border border-white/20 px-7 py-3 text-center text-sm font-semibold text-white transition hover:border-white"
                 >
-                  See CRM Handoff Demo
+                  Request Information
                 </a>
               </div>
             </div>

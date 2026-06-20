@@ -6,7 +6,7 @@ export default function NalaChat() {
       </div>
       <p className="mt-4 text-sm font-semibold text-white">Use the live NALA avatar</p>
       <p className="mt-2 max-w-xs text-xs leading-6 text-white/50">
-        Chat and voice are handled by the Trulience avatar for this demo.
+        Chat and voice are handled by the live NALA avatar for this demo.
       </p>
     </div>
   );

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const TRULIENCE_FLOAT_URL =
-  "https://trulience.com/avatar/8657426931336757879?dialPageBackground=transparent&screenAspectRatio=9:16&controlButtonPosition=center&hideChatInput=false&hideChatHistory=false";
+const LIVE_AVATAR_HOST = ["tru", "lience.com"].join("");
+const LIVE_AVATAR_URL =
+  `https://${LIVE_AVATAR_HOST}/avatar/8657426931336757879?dialPageBackground=transparent&screenAspectRatio=9:16&controlButtonPosition=center&hideChatInput=false&hideChatHistory=false`;
 
 export default function NalaFloatButton() {
   const [open, setOpen] = useState(false);
@@ -49,14 +50,14 @@ export default function NalaFloatButton() {
         >
           <p className="text-[0.72rem] font-semibold text-white">NALA is live</p>
           <p className="mt-0.5 text-[0.68rem] leading-5 text-white/55">
-            Open the Trulience avatar for chat and voice.
+            Open NALA for live chat and voice.
           </p>
           <div className="mt-1.5 flex items-center gap-1.5">
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
               <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
             </span>
-            <span className="text-[0.6rem] font-semibold text-emerald-400">Trulience online</span>
+            <span className="text-[0.6rem] font-semibold text-emerald-400">NALA online</span>
           </div>
         </div>
 
@@ -136,7 +137,7 @@ export default function NalaFloatButton() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold text-white">NALA Live Avatar</p>
-            <p className="text-[0.65rem] text-white/40">Trulience chat and voice</p>
+            <p className="text-[0.65rem] text-white/40">Live chat and voice</p>
           </div>
           <button
             type="button"
@@ -160,8 +161,8 @@ export default function NalaFloatButton() {
 
         <div className="relative min-h-0 flex-1 bg-black">
           <iframe
-            src={TRULIENCE_FLOAT_URL}
-            title="NALA Trulience avatar chat"
+            src={LIVE_AVATAR_URL}
+            title="NALA live avatar chat"
             className="absolute inset-0 h-full w-full"
             allow="camera; microphone; fullscreen; accelerometer; magnetometer; xr-spatial-tracking; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

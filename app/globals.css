@@ -225,14 +225,6 @@ textarea {
   background: radial-gradient(ellipse at bottom, rgba(220,160,40,0.25) 0%, transparent 80%);
 }
 
-/* ─── Neighborhood placeholders ─────────────────────────── */
-.neighborhood-gradient-1 { background: linear-gradient(155deg, #2a2000 0%, #7a5a10 45%, #c4922e 80%, #e8b84a 100%); }
-.neighborhood-gradient-2 { background: linear-gradient(155deg, #061828 0%, #0d3d60 45%, #1a6e9e 80%, #2a96cc 100%); }
-.neighborhood-gradient-3 { background: linear-gradient(155deg, #1e0c30 0%, #4e1e72 45%, #8b3fbf 80%, #b86ee0 100%); }
-.neighborhood-gradient-4 { background: linear-gradient(155deg, #041808 0%, #0e4020 45%, #1e7840 80%, #34b060 100%); }
-.neighborhood-gradient-5 { background: linear-gradient(155deg, #2a1000 0%, #7a3010 45%, #c05828 80%, #e87040 100%); }
-.neighborhood-gradient-6 { background: linear-gradient(155deg, #0c0820 0%, #261858 45%, #4a309e 80%, #6a50c8 100%); }
-
 /* ─── NALA floating button ───────────────────────────────── */
 .nala-fab {
   will-change: opacity, transform;
