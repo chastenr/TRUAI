@@ -1,31 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkVapiSecret } from "@/lib/vapi-auth";
 
-// Vapi event types sent to server webhooks
-type VapiEventType =
-  | "end-of-call-report"
-  | "transcript"
-  | "status-update"
-  | "tool-calls"
-  | "hang"
-  | "speech-update"
-  | "conversation-update"
-  | string;
-
-type VapiCallSummary = {
-  callId?: string;
-  type?: VapiEventType;
-  summary?: string;
-  transcript?: string;
-  durationSeconds?: number;
-  endedReason?: string;
-};
-
-function safeLog(label: string, data: Record<string, unknown>) {
-  // Never log secrets or tokens — only safe operational fields
-  const { callId, type, summary, endedReason, durationSeconds } = data as VapiCallSummary & Record<string, unknown>;
-  console.info(label, { callId, type, summary: summary ? "[present]" : "(none)", endedReason, durationSeconds });
-}
+// POST /api/vapi/webhook
+// Receives Vapi lifecycle events: call ended, SMS conversation updates,
+// status changes, tool-call debug traces, etc.
+// Must return 200 quickly — Vapi has a 20-second server timeout.
 
 export async function POST(req: NextRequest) {
   const authError = checkVapiSecret(req);
@@ -38,49 +17,84 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Invalid JSON body." }, { status: 400 });
   }
 
-  // Vapi wraps all event data inside a `message` key
+  // Vapi wraps event data inside a `message` key for server webhooks.
+  // For direct API calls the fields sit at the root.
   const message = (raw.message ?? raw) as Record<string, unknown>;
   const eventType = (message.type ?? raw.type ?? "unknown") as string;
 
-  safeLog(`[Vapi webhook] event: ${eventType}`, message);
+  // Safe fields only — never log auth tokens, API keys, or full transcripts.
+  console.info(`[Vapi webhook] event=${eventType}`, {
+    callId: message.callId ?? raw.callId ?? null,
+    sessionId: message.sessionId ?? null,
+    channel: message.channel ?? null,
+  });
 
   switch (eventType) {
+    // ── Voice: call lifecycle ────────────────────────────────────────────────
     case "end-of-call-report": {
-      const callId = message.callId as string | undefined;
-      const endedReason = message.endedReason as string | undefined;
-      const durationSeconds = message.durationSeconds as number | undefined;
-      const summary = message.summary as string | undefined;
-      const transcript = message.transcript as string | undefined;
-
       console.info("[Vapi webhook] call ended:", {
-        callId,
-        endedReason,
-        durationSeconds,
-        hasSummary: Boolean(summary),
-        transcriptLength: typeof transcript === "string" ? transcript.length : 0,
+        callId: message.callId,
+        endedReason: message.endedReason,
+        durationSeconds: message.durationSeconds,
+        hasSummary: Boolean(message.summary),
+        transcriptLength: typeof message.transcript === "string" ? message.transcript.length : 0,
       });
       break;
     }
 
     case "status-update": {
-      console.info("[Vapi webhook] status update:", {
+      console.info("[Vapi webhook] status:", {
         callId: message.callId,
         status: message.status,
       });
       break;
     }
 
-    case "tool-calls": {
-      const toolCallList = message.toolCallList as Array<{ function?: { name?: string } }> | undefined;
-      const toolNames = toolCallList?.map((t) => t.function?.name).filter(Boolean) ?? [];
-      console.info("[Vapi webhook] tool calls:", { callId: message.callId, tools: toolNames });
+    // ── SMS / Chat: message events ───────────────────────────────────────────
+    // Vapi fires conversation-update for every new message in an SMS session.
+    case "conversation-update": {
+      const messages = message.messages as Array<Record<string, unknown>> | undefined;
+      const last = messages?.at(-1);
+      const role = last?.role as string | undefined;
+      const channel = message.channel ?? "unknown";
+
+      console.info("[Vapi webhook] conversation-update:", {
+        sessionId: message.sessionId,
+        channel,
+        messageCount: messages?.length ?? 0,
+        lastRole: role ?? "none",
+      });
+
+      // No action needed — Vapi handles the AI reply directly.
+      // Tool calls (capture_lead, book_showing, property_inquiry) have their own endpoints.
       break;
     }
 
-    default:
+    // ── Tool calls (debugging only — tools have dedicated endpoints) ─────────
+    case "tool-calls": {
+      const toolCallList = message.toolCallList as Array<{ function?: { name?: string } }> | undefined;
+      const toolNames = toolCallList?.map((t) => t.function?.name).filter(Boolean) ?? [];
+      console.info("[Vapi webhook] tool-calls:", {
+        callId: message.callId,
+        sessionId: message.sessionId,
+        tools: toolNames,
+      });
+      break;
+    }
+
+    case "hang": {
+      console.info("[Vapi webhook] hang detected:", { callId: message.callId });
+      break;
+    }
+
+    // ── Catch-all: log unknown types so we can add handlers later ────────────
+    default: {
       console.info("[Vapi webhook] unhandled event type:", eventType);
+      break;
+    }
   }
 
-  // Vapi expects a 200 with any JSON body to acknowledge receipt
+  // Always return 200 immediately. Vapi does not use this response body
+  // for anything other than confirming receipt.
   return NextResponse.json({ ok: true, received: eventType });
 }
